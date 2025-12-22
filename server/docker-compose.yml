@@ -1,0 +1,17 @@
+name: worker-verification-portal
+
+services:
+  db:
+    image: postgres:latest
+    container_name: worker-verification-portal-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=worker-verification-portal
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

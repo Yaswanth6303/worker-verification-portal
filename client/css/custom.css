@@ -1,0 +1,1667 @@
+/* ========================================
+   Custom Styles (Bootstrap Extensions)
+   SkillVerify Portal
+======================================== */
+
+/* ========== CSS Variables ========== */
+:root {
+  --bs-primary: #009688;
+  --bs-primary-rgb: 0, 150, 136;
+  --font-primary: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+
+  /* Light Theme Colors */
+  --body-bg: #ffffff;
+  --body-bg-secondary: #f8f9fa;
+  --body-bg-tertiary: #f1f5f9;
+  --text-color: #212529;
+  --text-muted: #6c757d;
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.125);
+  --navbar-bg: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #dee2e6;
+  --dropdown-bg: #ffffff;
+  --dropdown-border: rgba(0, 0, 0, 0.15);
+  --footer-bg: #1e293b;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --hero-gradient: linear-gradient(
+    135deg,
+    rgba(0, 150, 136, 0.03) 0%,
+    rgba(255, 192, 0, 0.03) 100%
+  );
+}
+
+/* Dark Theme Colors */
+[data-theme="dark"] {
+  --body-bg: #0f172a;
+  --body-bg-secondary: #1e293b;
+  --body-bg-tertiary: #334155;
+  --text-color: #f1f5f9;
+  --text-muted: #94a3b8;
+  --card-bg: #1e293b;
+  --card-border: rgba(255, 255, 255, 0.1);
+  --navbar-bg: #1e293b;
+  --input-bg: #1e293b;
+  --input-border: #475569;
+  --dropdown-bg: #1e293b;
+  --dropdown-border: rgba(255, 255, 255, 0.1);
+  --footer-bg: #0f172a;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --hero-gradient: linear-gradient(
+    135deg,
+    rgba(0, 150, 136, 0.08) 0%,
+    rgba(255, 192, 0, 0.05) 100%
+  );
+}
+
+/* ========== Global Overrides ========== */
+body {
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--body-bg);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6 {
+  font-family: var(--font-display);
+}
+
+/* ========== Bootstrap Color Overrides ========== */
+.bg-primary {
+  background-color: #009688 !important;
+}
+
+.text-primary {
+  color: #009688 !important;
+}
+
+.btn-primary {
+  background-color: #009688;
+  border-color: #009688;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #00796b;
+  border-color: #00796b;
+}
+
+.btn-outline-primary {
+  color: #009688;
+  border-color: #009688;
+}
+
+.btn-outline-primary:hover {
+  background-color: #009688;
+  border-color: #009688;
+  color: #fff;
+}
+
+.border-primary {
+  border-color: #009688 !important;
+}
+
+/* ========== Text Gradient ========== */
+.text-gradient {
+  background: linear-gradient(135deg, #009688 0%, #ffc000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========== Animations ========== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes floatBounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* ========== Hero Section ========== */
+.hero-section {
+  background: var(--hero-gradient);
+}
+
+[data-theme="dark"] .hero-section {
+  background: var(--hero-gradient);
+}
+
+/* ========== Light Theme Explicit Styles ========== */
+
+/* Floating Badges - Light Theme */
+.floating-badge {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* How It Works Section - Light Theme */
+#how-it-works {
+  background-color: #ffffff;
+}
+
+#how-it-works .step-card {
+  background-color: #ffffff;
+}
+
+#how-it-works h5.fw-bold {
+  color: #1e293b;
+}
+
+#how-it-works p.text-secondary {
+  color: #64748b !important;
+}
+
+/* Why Choose Us - Light Theme */
+#why-us {
+  background-color: #f8f9fa;
+}
+
+#why-us h6.fw-bold {
+  color: #1e293b;
+}
+
+#why-us p.text-secondary,
+#why-us p.small {
+  color: #64748b !important;
+}
+
+/* Services Section - Light Theme */
+#services {
+  background-color: #f8f9fa;
+}
+
+#services .card-title {
+  color: #1e293b;
+}
+
+#services .card-text {
+  color: #64748b !important;
+}
+
+/* Testimonials - Light Theme */
+#testimonials {
+  background-color: #ffffff;
+}
+
+#testimonials .card:not(.bg-primary) p {
+  color: #64748b !important;
+}
+
+#testimonials h6.fw-semibold {
+  color: #1e293b;
+}
+
+/* Worker Cards in Hero - Light Theme */
+.worker-card {
+  background-color: #ffffff !important;
+}
+
+.worker-card h6 {
+  color: #1e293b !important;
+}
+
+.worker-card small,
+.worker-card .text-muted {
+  color: #64748b !important;
+}
+
+/* Worker Card Icons - Light Theme */
+.worker-card .bg-primary.bg-opacity-10 {
+  background-color: rgba(0, 150, 136, 0.15) !important;
+}
+
+.worker-card .bg-warning.bg-opacity-10 {
+  background-color: rgba(255, 193, 7, 0.15) !important;
+}
+
+.worker-card .bg-danger.bg-opacity-10 {
+  background-color: rgba(220, 53, 69, 0.15) !important;
+}
+
+.worker-card i.text-primary {
+  color: #007a6f !important;
+}
+
+.worker-card i.text-warning {
+  color: #d97706 !important;
+}
+
+.worker-card i.text-danger {
+  color: #dc2626 !important;
+}
+
+/* Floating Badge Icons - Light Theme */
+.floating-badge i.text-primary {
+  color: #007a6f !important;
+}
+
+.floating-badge i.text-success {
+  color: #059669 !important;
+}
+
+.floating-badge i.text-info {
+  color: #0891b2 !important;
+}
+
+/* Worker Card Icons - Dark Theme */
+[data-theme="dark"] .worker-card .bg-primary.bg-opacity-10 {
+  background-color: rgba(0, 178, 161, 0.25) !important;
+}
+
+[data-theme="dark"] .worker-card .bg-warning.bg-opacity-10 {
+  background-color: rgba(255, 193, 7, 0.25) !important;
+}
+
+[data-theme="dark"] .worker-card .bg-danger.bg-opacity-10 {
+  background-color: rgba(248, 113, 113, 0.25) !important;
+}
+
+[data-theme="dark"] .worker-card i.text-primary {
+  color: #00d4c8 !important;
+}
+
+[data-theme="dark"] .worker-card i.text-warning {
+  color: #fbbf24 !important;
+}
+
+[data-theme="dark"] .worker-card i.text-danger {
+  color: #f87171 !important;
+}
+
+/* Floating Badge Icons - Dark Theme */
+[data-theme="dark"] .floating-badge i.text-primary {
+  color: #00d4c8 !important;
+}
+
+[data-theme="dark"] .floating-badge i.text-success {
+  color: #34d399 !important;
+}
+
+[data-theme="dark"] .floating-badge i.text-info {
+  color: #38bdf8 !important;
+}
+
+/* Badge text visibility - Light Theme */
+.badge.bg-primary.bg-opacity-10 {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: #009688 !important;
+}
+
+.badge.bg-warning.bg-opacity-10 {
+  background-color: rgba(255, 193, 7, 0.15) !important;
+  color: #b45309 !important;
+}
+
+/* Step card text - Light Theme */
+.step-card h5 {
+  color: #1e293b;
+}
+
+.step-card p {
+  color: #64748b !important;
+}
+
+/* Section headers - Light Theme */
+section h2.display-5 {
+  color: #1e293b;
+}
+
+section .lead.text-secondary {
+  color: #64748b !important;
+}
+
+/* Card paragraph text - Light Theme */
+.card-text.text-secondary {
+  color: #64748b !important;
+}
+
+.hero-bg {
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.5;
+}
+
+.hero-shape.shape-1 {
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 150, 136, 0.2) 0%,
+    rgba(0, 178, 161, 0.1) 100%
+  );
+  top: -200px;
+  right: -100px;
+  animation: float 25s ease-in-out infinite;
+}
+
+.hero-shape.shape-2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 192, 0, 0.15) 0%,
+    rgba(230, 173, 0, 0.1) 100%
+  );
+  bottom: 0;
+  left: -100px;
+  animation: float 30s ease-in-out infinite reverse;
+}
+
+.hero-shape.shape-3 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 150, 136, 0.12) 0%,
+    rgba(255, 192, 0, 0.08) 100%
+  );
+  top: 40%;
+  left: 25%;
+  animation: float 20s ease-in-out infinite;
+}
+
+/* Hero Visual */
+.hero-visual {
+  position: relative;
+}
+
+.worker-card.card-1 {
+  top: 10%;
+  left: 5%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.worker-card.card-2 {
+  top: 35%;
+  right: 0;
+  animation: float 7s ease-in-out 1s infinite;
+}
+
+.worker-card.card-3 {
+  bottom: 15%;
+  left: 15%;
+  animation: float 5s ease-in-out 0.5s infinite;
+}
+
+.floating-badge.element-1 {
+  top: 5%;
+  right: 20%;
+  animation: floatBounce 4s ease-in-out infinite;
+}
+
+.floating-badge.element-2 {
+  bottom: 35%;
+  right: 5%;
+  animation: floatBounce 5s ease-in-out 0.5s infinite;
+}
+
+.floating-badge.element-3 {
+  bottom: 10%;
+  right: 30%;
+  animation: floatBounce 4.5s ease-in-out 1s infinite;
+}
+
+/* ========== Service Cards ========== */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+}
+
+/* ========== Service Icons - Light Theme ========== */
+.service-icon {
+  position: relative;
+}
+
+.service-icon.bg-primary.bg-opacity-10 {
+  background-color: rgba(0, 150, 136, 0.15) !important;
+}
+
+.service-icon.bg-warning.bg-opacity-10 {
+  background-color: rgba(255, 193, 7, 0.15) !important;
+}
+
+.service-icon.bg-danger.bg-opacity-10 {
+  background-color: rgba(220, 53, 69, 0.15) !important;
+}
+
+.service-icon.bg-info.bg-opacity-10 {
+  background-color: rgba(13, 202, 240, 0.15) !important;
+}
+
+.service-icon.bg-success.bg-opacity-10 {
+  background-color: rgba(25, 135, 84, 0.15) !important;
+}
+
+/* Icon colors - Light Theme */
+.service-icon i.text-primary {
+  color: #007a6f !important;
+}
+
+.service-icon i.text-warning {
+  color: #d97706 !important;
+}
+
+.service-icon i.text-danger {
+  color: #dc2626 !important;
+}
+
+.service-icon i.text-info {
+  color: #0891b2 !important;
+}
+
+.service-icon i.text-success {
+  color: #059669 !important;
+}
+
+/* ========== Service Icons - Dark Theme ========== */
+[data-theme="dark"] .service-icon.bg-primary.bg-opacity-10 {
+  background-color: rgba(0, 178, 161, 0.25) !important;
+}
+
+[data-theme="dark"] .service-icon.bg-warning.bg-opacity-10 {
+  background-color: rgba(255, 193, 7, 0.25) !important;
+}
+
+[data-theme="dark"] .service-icon.bg-danger.bg-opacity-10 {
+  background-color: rgba(248, 113, 113, 0.25) !important;
+}
+
+[data-theme="dark"] .service-icon.bg-info.bg-opacity-10 {
+  background-color: rgba(56, 189, 248, 0.25) !important;
+}
+
+[data-theme="dark"] .service-icon.bg-success.bg-opacity-10 {
+  background-color: rgba(52, 211, 153, 0.25) !important;
+}
+
+/* Icon colors - Dark Theme (brighter) */
+[data-theme="dark"] .service-icon i.text-primary {
+  color: #00d4c8 !important;
+}
+
+[data-theme="dark"] .service-icon i.text-warning {
+  color: #fbbf24 !important;
+}
+
+[data-theme="dark"] .service-icon i.text-danger {
+  color: #f87171 !important;
+}
+
+[data-theme="dark"] .service-icon i.text-info {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .service-icon i.text-success {
+  color: #34d399 !important;
+}
+
+/* Small icons in service cards - Light Theme */
+.service-card .small i.text-primary,
+.service-card .text-muted i.text-primary {
+  color: #009688 !important;
+}
+
+.service-card .small i.text-warning,
+.service-card .text-muted i.text-warning {
+  color: #d97706 !important;
+}
+
+/* Small icons in service cards - Dark Theme */
+[data-theme="dark"] .service-card .small i.text-primary,
+[data-theme="dark"] .service-card .text-muted i.text-primary {
+  color: #00d4c8 !important;
+}
+
+[data-theme="dark"] .service-card .small i.text-warning,
+[data-theme="dark"] .service-card .text-muted i.text-warning {
+  color: #fbbf24 !important;
+}
+
+/* ========== Step Cards ========== */
+.step-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Step Icons - Light Theme */
+.step-card .bg-primary.bg-opacity-10 {
+  background-color: rgba(0, 150, 136, 0.15) !important;
+}
+
+.step-card i.text-primary {
+  color: #007a6f !important;
+}
+
+/* Step Icons - Dark Theme */
+[data-theme="dark"] .step-card .bg-primary.bg-opacity-10 {
+  background-color: rgba(0, 178, 161, 0.25) !important;
+}
+
+[data-theme="dark"] .step-card i.text-primary {
+  color: #00d4c8 !important;
+}
+
+/* Why Choose Us Icons - Light Theme */
+#why-us .bg-primary.bg-opacity-10 {
+  background-color: rgba(0, 150, 136, 0.15) !important;
+}
+
+#why-us i.text-primary {
+  color: #007a6f !important;
+}
+
+/* Why Choose Us Icons - Dark Theme */
+[data-theme="dark"] #why-us .bg-primary.bg-opacity-10 {
+  background-color: rgba(0, 178, 161, 0.25) !important;
+}
+
+[data-theme="dark"] #why-us i.text-primary {
+  color: #00d4c8 !important;
+}
+
+/* ========== Auth Pages ========== */
+.auth-page {
+  min-height: 100vh;
+  background: var(--hero-gradient);
+}
+
+[data-theme="dark"] .auth-page {
+  background: var(--hero-gradient);
+}
+
+[data-theme="dark"] .auth-page .bg-white {
+  background-color: var(--card-bg) !important;
+}
+
+[data-theme="dark"] .auth-page h2,
+[data-theme="dark"] .auth-page h6,
+[data-theme="dark"] .auth-page .fw-bold {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .auth-page .text-muted {
+  color: var(--text-muted) !important;
+}
+
+.auth-bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+}
+
+.auth-bg-shape.shape-1 {
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 150, 136, 0.15) 0%,
+    rgba(0, 178, 161, 0.1) 100%
+  );
+  top: -200px;
+  right: -100px;
+  animation: float 20s ease-in-out infinite;
+}
+
+.auth-bg-shape.shape-2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 192, 0, 0.12) 0%,
+    rgba(230, 173, 0, 0.08) 100%
+  );
+  bottom: -100px;
+  left: -100px;
+  animation: float 25s ease-in-out infinite reverse;
+}
+
+/* Auth Branding Panel */
+.auth-branding {
+  background: linear-gradient(135deg, #00796b 0%, #004d40 100%);
+}
+
+/* Password Strength */
+.password-strength .progress {
+  height: 4px;
+}
+
+.password-strength.weak .progress-bar {
+  background-color: #dc3545;
+  width: 25%;
+}
+
+.password-strength.fair .progress-bar {
+  background-color: #ffc107;
+  width: 50%;
+}
+
+.password-strength.good .progress-bar {
+  background-color: #17a2b8;
+  width: 75%;
+}
+
+.password-strength.strong .progress-bar {
+  background-color: #28a745;
+  width: 100%;
+}
+
+/* Skills Grid */
+.skill-option input:checked + .skill-card {
+  background-color: rgba(0, 150, 136, 0.1);
+  border-color: #009688;
+}
+
+.skill-option input:checked + .skill-card i {
+  color: #009688;
+}
+
+/* Skill Cards in Dark Theme */
+[data-theme="dark"] .skill-card {
+  background-color: var(--card-bg);
+  border-color: var(--card-border);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .skill-card i {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .btn-check:checked + .skill-card {
+  background-color: rgba(0, 150, 136, 0.2);
+  border-color: #009688;
+}
+
+[data-theme="dark"] .btn-check:checked + .skill-card i {
+  color: #00b2a1;
+}
+
+/* Steps Indicator Dark Theme */
+[data-theme="dark"] .step .badge.bg-secondary {
+  background-color: var(--body-bg-tertiary) !important;
+}
+
+/* ========== Form Enhancements ========== */
+.form-control:focus,
+.form-select:focus {
+  border-color: #009688;
+  box-shadow: 0 0 0 0.25rem rgba(0, 150, 136, 0.25);
+}
+
+.form-check-input:checked {
+  background-color: #009688;
+  border-color: #009688;
+}
+
+/* ========== Navbar Scrolled ========== */
+.navbar.scrolled {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+[data-theme="dark"] .navbar.scrolled {
+  background-color: rgba(30, 41, 59, 0.95) !important;
+}
+
+/* ========== Dark Theme Bootstrap Overrides ========== */
+
+/* Navbar */
+[data-theme="dark"] .navbar {
+  background-color: var(--navbar-bg) !important;
+}
+
+[data-theme="dark"] .navbar-light .navbar-nav .nav-link {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .navbar-light .navbar-nav .nav-link:hover,
+[data-theme="dark"] .navbar-light .navbar-nav .nav-link.active {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .navbar-brand span:not(.text-primary) {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* Cards */
+[data-theme="dark"] .card {
+  background-color: var(--card-bg);
+  border-color: var(--card-border);
+}
+
+[data-theme="dark"] .card-body,
+[data-theme="dark"] .card-header,
+[data-theme="dark"] .card-footer {
+  background-color: transparent;
+}
+
+/* Dropdowns */
+[data-theme="dark"] .dropdown-menu {
+  background-color: var(--dropdown-bg);
+  border-color: var(--dropdown-border);
+}
+
+[data-theme="dark"] .dropdown-item {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .dropdown-item:hover,
+[data-theme="dark"] .dropdown-item:focus {
+  background-color: var(--body-bg-tertiary);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .dropdown-divider {
+  border-color: var(--card-border);
+}
+
+/* Forms */
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+  background-color: var(--input-bg);
+  border-color: var(--input-border);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+  background-color: var(--input-bg);
+  border-color: #009688;
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .form-control::placeholder {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .form-label {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .input-group-text {
+  background-color: var(--body-bg-tertiary);
+  border-color: var(--input-border);
+  color: var(--text-color);
+}
+
+/* Buttons */
+[data-theme="dark"] .btn-outline-secondary {
+  color: var(--text-muted);
+  border-color: var(--input-border);
+}
+
+[data-theme="dark"] .btn-outline-secondary:hover {
+  background-color: var(--body-bg-tertiary);
+  border-color: var(--input-border);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .btn-outline-dark {
+  color: var(--text-color);
+  border-color: var(--text-color);
+}
+
+[data-theme="dark"] .btn-outline-dark:hover {
+  background-color: var(--text-color);
+  color: var(--body-bg);
+}
+
+[data-theme="dark"] .btn-light {
+  background-color: var(--body-bg-secondary);
+  border-color: var(--body-bg-secondary);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .btn-light:hover {
+  background-color: var(--body-bg-tertiary);
+  border-color: var(--body-bg-tertiary);
+}
+
+/* Text Colors */
+[data-theme="dark"] .text-dark {
+  color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .text-muted {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .text-secondary {
+  color: #94a3b8 !important;
+}
+
+/* Stats Numbers in Hero */
+[data-theme="dark"] .stat-number {
+  color: var(--text-color);
+}
+
+/* Vertical Rule */
+[data-theme="dark"] .vr {
+  background-color: var(--card-border);
+  opacity: 1;
+}
+
+/* Feature Section h6 titles */
+[data-theme="dark"] .d-flex h6.fw-bold,
+[data-theme="dark"] .d-flex h6.fw-semibold {
+  color: var(--text-color) !important;
+}
+
+/* Small descriptions */
+[data-theme="dark"] p.small,
+[data-theme="dark"] .small {
+  color: #94a3b8;
+}
+
+/* Card paragraphs */
+[data-theme="dark"] .card-text {
+  color: #94a3b8 !important;
+}
+
+/* Lead paragraphs */
+[data-theme="dark"] .lead {
+  color: #94a3b8 !important;
+}
+
+/* Hero section text fixes */
+[data-theme="dark"] .hero-section .display-4 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .hero-section p.lead {
+  color: #94a3b8 !important;
+}
+
+/* Backgrounds */
+[data-theme="dark"] .bg-white {
+  background-color: var(--card-bg) !important;
+}
+
+[data-theme="dark"] .bg-light {
+  background-color: var(--body-bg-secondary) !important;
+}
+
+[data-theme="dark"] section:not(.bg-primary):not(#for-workers) {
+  background-color: var(--body-bg);
+}
+
+[data-theme="dark"] #services {
+  background-color: #1e293b !important;
+}
+
+[data-theme="dark"] #services .card {
+  background-color: #0f172a !important;
+}
+
+[data-theme="dark"] #services .card-title {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] #services .card-text {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] #services h2.display-5 {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] #services .lead {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] #services .badge.bg-primary.bg-opacity-10 {
+  background-color: rgba(0, 150, 136, 0.25) !important;
+  color: #00b2a1 !important;
+}
+
+/* Borders */
+[data-theme="dark"] .border {
+  border-color: var(--card-border) !important;
+}
+
+[data-theme="dark"] .border-bottom {
+  border-color: var(--card-border) !important;
+}
+
+/* Nav Tabs/Pills */
+[data-theme="dark"] .nav-pills .nav-link {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .nav-pills .nav-link.active {
+  background-color: #009688;
+  color: #fff;
+}
+
+/* Badges */
+[data-theme="dark"] .badge.bg-white {
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+}
+
+/* Progress */
+[data-theme="dark"] .progress {
+  background-color: var(--body-bg-tertiary);
+}
+
+/* Footer */
+[data-theme="dark"] footer {
+  background-color: #0f172a !important;
+}
+
+[data-theme="dark"] footer h6 {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] footer p,
+[data-theme="dark"] footer .text-white-50 {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] footer a.text-white-50 {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] footer a.text-white-50:hover {
+  color: #f1f5f9 !important;
+}
+
+/* Wave SVG - Light Theme */
+.wave-path {
+  fill: #e2e8f0;
+  transition: fill 0.3s ease;
+}
+
+/* Wave SVG - Dark Theme */
+[data-theme="dark"] .wave-path {
+  fill: #1e293b;
+}
+
+/* HR Dividers */
+[data-theme="dark"] hr {
+  border-color: var(--card-border);
+}
+
+/* Service Cards in Dark Mode */
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .step-card {
+  background-color: var(--card-bg) !important;
+}
+
+[data-theme="dark"] .service-card .card-title,
+[data-theme="dark"] .step-card h5,
+[data-theme="dark"] .card h5,
+[data-theme="dark"] .card h6 {
+  color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .service-card .card-text,
+[data-theme="dark"] .step-card p,
+[data-theme="dark"] .card p:not(.text-white):not(.opacity-90) {
+  color: #94a3b8 !important;
+}
+
+/* How It Works Section - Dark Theme */
+[data-theme="dark"] #how-it-works {
+  background-color: #0f172a !important;
+}
+
+[data-theme="dark"] #how-it-works .step-card {
+  background-color: #1e293b !important;
+}
+
+[data-theme="dark"] #how-it-works h5.fw-bold {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] #how-it-works p {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] #how-it-works .badge.bg-primary.bg-opacity-10 {
+  background-color: rgba(0, 150, 136, 0.25) !important;
+  color: #00b2a1 !important;
+}
+
+[data-theme="dark"] #how-it-works h2.display-5 {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] #how-it-works .lead {
+  color: #94a3b8 !important;
+}
+
+/* Why Choose Us Section - Dark Theme */
+[data-theme="dark"] #why-us {
+  background-color: #1e293b !important;
+}
+
+[data-theme="dark"] #why-us h2.display-5 {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] #why-us h6 {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] #why-us p {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] #why-us .lead {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] #why-us .badge.bg-primary.bg-opacity-10 {
+  background-color: rgba(0, 150, 136, 0.25) !important;
+  color: #00b2a1 !important;
+}
+
+/* Verification Card - Dark Theme */
+[data-theme="dark"] #why-us .card {
+  background-color: #0f172a !important;
+}
+
+[data-theme="dark"] #why-us .card h5 {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] #why-us .card span {
+  color: #f1f5f9 !important;
+}
+
+/* Testimonials Section - Dark Theme */
+[data-theme="dark"] #testimonials {
+  background-color: #0f172a !important;
+}
+
+[data-theme="dark"] #testimonials h2.display-5 {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] #testimonials .lead {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] #testimonials .badge.bg-primary.bg-opacity-10 {
+  background-color: rgba(0, 150, 136, 0.25) !important;
+  color: #00b2a1 !important;
+}
+
+[data-theme="dark"] #testimonials .card:not(.bg-primary) {
+  background-color: #1e293b !important;
+}
+
+[data-theme="dark"] #testimonials .card:not(.bg-primary) p {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] #testimonials .card h6 {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] #testimonials .card small {
+  color: #94a3b8 !important;
+}
+
+/* Testimonial Cards */
+[data-theme="dark"] .card:not(.bg-primary) {
+  background-color: var(--card-bg);
+}
+
+/* Worker Cards in Hero - Dark Theme */
+[data-theme="dark"] .worker-card {
+  background-color: #1e293b !important;
+}
+
+[data-theme="dark"] .worker-card h6 {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .worker-card small {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .worker-card .text-muted {
+  color: #94a3b8 !important;
+}
+
+/* Hero Section Text - Dark Theme */
+[data-theme="dark"] .hero-section h1 {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .hero-section .stat-number {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .hero-section small.text-muted {
+  color: #94a3b8 !important;
+}
+
+/* Icon backgrounds in Dark Theme */
+[data-theme="dark"] .bg-primary.bg-opacity-10 {
+  background-color: rgba(0, 150, 136, 0.2) !important;
+}
+
+[data-theme="dark"] .bg-warning.bg-opacity-10 {
+  background-color: rgba(255, 193, 7, 0.2) !important;
+}
+
+[data-theme="dark"] .bg-danger.bg-opacity-10 {
+  background-color: rgba(220, 53, 69, 0.2) !important;
+}
+
+[data-theme="dark"] .bg-info.bg-opacity-10 {
+  background-color: rgba(13, 202, 240, 0.2) !important;
+}
+
+[data-theme="dark"] .bg-success.bg-opacity-10 {
+  background-color: rgba(25, 135, 84, 0.2) !important;
+}
+
+[data-theme="dark"] .bg-secondary.bg-opacity-10 {
+  background-color: rgba(108, 117, 125, 0.2) !important;
+}
+
+/* Floating Badges - Dark Theme */
+[data-theme="dark"] .floating-badge.badge.bg-white,
+[data-theme="dark"] .floating-badge {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .floating-badge i {
+  opacity: 1;
+}
+
+/* CTA Section */
+[data-theme="dark"] #cta {
+  background-color: #1e293b !important;
+}
+
+/* CTA Primary Box - preserve white text */
+[data-theme="dark"] .bg-primary.rounded-4.text-white,
+[data-theme="dark"] .bg-primary.text-white.text-center {
+  background-color: #009688 !important;
+}
+
+[data-theme="dark"] .bg-primary.rounded-4.text-white h2,
+[data-theme="dark"] .bg-primary.text-white.text-center h2 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .bg-primary.rounded-4.text-white p,
+[data-theme="dark"] .bg-primary.text-white.text-center p,
+[data-theme="dark"] .bg-primary.rounded-4.text-white .lead {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* For Workers Section - keep as primary with white text */
+[data-theme="dark"] #for-workers {
+  background-color: #009688 !important;
+}
+
+[data-theme="dark"] #for-workers h2,
+[data-theme="dark"] #for-workers h2.display-5 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] #for-workers .lead,
+[data-theme="dark"] #for-workers p.lead {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="dark"] #for-workers span:not(.badge):not(.text-warning) {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] #for-workers .badge.bg-white.bg-opacity-10 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] #for-workers .text-warning {
+  color: #ffc000 !important;
+}
+
+[data-theme="dark"] #for-workers .d-flex span {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] #for-workers i.ph-fill.ph-check-circle {
+  color: #ffc000 !important;
+}
+
+/* For Workers - Earnings Card */
+[data-theme="dark"] #for-workers .card {
+  background-color: #1e293b !important;
+}
+
+[data-theme="dark"] #for-workers .card .display-4,
+[data-theme="dark"] #for-workers .card span.fw-bold {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] #for-workers .card .text-muted {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] #for-workers .card p {
+  color: #94a3b8 !important;
+}
+
+/* List styles */
+[data-theme="dark"] .list-unstyled a {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .list-unstyled a:hover {
+  color: var(--text-color);
+}
+
+/* Feature icons background - removed global opacity override */
+/* Icons should keep their colors */
+
+/* Badge opacity override */
+[data-theme="dark"] .badge.bg-primary.bg-opacity-10 {
+  background-color: rgba(0, 150, 136, 0.2) !important;
+}
+
+[data-theme="dark"] .badge.bg-warning.bg-opacity-10 {
+  background-color: rgba(255, 193, 7, 0.2) !important;
+}
+
+[data-theme="dark"] .badge.bg-success.bg-opacity-10 {
+  background-color: rgba(25, 135, 84, 0.2) !important;
+}
+
+/* Typography in Dark Mode */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] .h1,
+[data-theme="dark"] .h2,
+[data-theme="dark"] .h3,
+[data-theme="dark"] .h4,
+[data-theme="dark"] .h5,
+[data-theme="dark"] .h6,
+[data-theme="dark"] .display-1,
+[data-theme="dark"] .display-2,
+[data-theme="dark"] .display-3,
+[data-theme="dark"] .display-4,
+[data-theme="dark"] .display-5,
+[data-theme="dark"] .display-6 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .lead {
+  color: var(--text-muted);
+}
+
+/* Verification Process Card */
+[data-theme="dark"] .card span:not(.badge) {
+  color: var(--text-color);
+}
+
+/* Form Labels */
+[data-theme="dark"] label {
+  color: var(--text-color);
+}
+
+/* Small text */
+[data-theme="dark"] small:not(.text-white-50):not(.opacity-75) {
+  color: var(--text-muted);
+}
+
+/* Checkmark spans */
+[data-theme="dark"] .d-flex.align-items-center.gap-2 span {
+  color: var(--text-color);
+}
+
+/* ========== Global Dark Mode Fixes ========== */
+
+/* Preserve white text on primary backgrounds */
+[data-theme="dark"] .bg-primary .text-white,
+[data-theme="dark"] .bg-primary.text-white,
+[data-theme="dark"] .bg-primary h1,
+[data-theme="dark"] .bg-primary h2,
+[data-theme="dark"] .bg-primary h3,
+[data-theme="dark"] .bg-primary h4,
+[data-theme="dark"] .bg-primary h5,
+[data-theme="dark"] .bg-primary h6 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .bg-primary p,
+[data-theme="dark"] .bg-primary .lead {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="dark"] .bg-primary small,
+[data-theme="dark"] .bg-primary .opacity-75 {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+[data-theme="dark"] .bg-primary .opacity-90 {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* All section headers - non-primary backgrounds */
+[data-theme="dark"] section:not(.bg-primary) h2.display-5 {
+  color: var(--text-color) !important;
+}
+
+/* All fw-bold and fw-semibold in cards */
+[data-theme="dark"]
+  .fw-bold:not(.text-primary):not(.text-warning):not(.text-white):not(.badge),
+[data-theme="dark"]
+  .fw-semibold:not(.text-primary):not(.text-warning):not(.text-white):not(
+    .badge
+  ) {
+  color: var(--text-color);
+}
+
+/* Badge text fix */
+[data-theme="dark"] .badge.text-primary {
+  color: #00b2a1 !important;
+}
+
+/* Ensure primary card stays styled - Testimonials */
+[data-theme="dark"] .card.bg-primary {
+  background-color: #009688 !important;
+}
+
+[data-theme="dark"] .card.bg-primary p,
+[data-theme="dark"] .card.bg-primary h6,
+[data-theme="dark"] .card.bg-primary span {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .card.bg-primary small,
+[data-theme="dark"] .card.bg-primary .opacity-75 {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+[data-theme="dark"] .card.bg-primary .opacity-90,
+[data-theme="dark"] .card.bg-primary p.opacity-90 {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Small muted text everywhere */
+[data-theme="dark"] small.text-muted,
+[data-theme="dark"] .small.text-muted {
+  color: #94a3b8 !important;
+}
+
+/* Section descriptions */
+[data-theme="dark"] section .lead.text-secondary,
+[data-theme="dark"] section p.lead {
+  color: #94a3b8 !important;
+}
+
+/* Fix body text color */
+[data-theme="dark"] body {
+  color: #f1f5f9;
+}
+
+/* Navbar link colors fix */
+[data-theme="dark"] .navbar .nav-link {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .navbar .nav-link:hover,
+[data-theme="dark"] .navbar .nav-link.active {
+  color: #f1f5f9 !important;
+}
+
+/* Dropdown text in navbar */
+[data-theme="dark"] .dropdown-menu .dropdown-item {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .dropdown-menu .dropdown-item:hover {
+  background-color: var(--body-bg-tertiary);
+}
+
+/* ========== Button Enhancements ========== */
+.btn {
+  transition: all 0.2s ease;
+}
+
+.btn-warning {
+  background-color: #ffc000;
+  border-color: #ffc000;
+  color: #212529;
+}
+
+.btn-warning:hover {
+  background-color: #e6ad00;
+  border-color: #e6ad00;
+  color: #212529;
+}
+
+/* ========== Card Enhancements ========== */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ========== Logo Icon ========== */
+.logo-icon {
+  box-shadow: 0 4px 12px rgba(0, 150, 136, 0.3);
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.navbar-brand:hover .logo-icon {
+  transform: scale(1.05) rotate(-5deg);
+}
+
+/* ========== Spinner Animation ========== */
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+/* ========== Toast Notifications ========== */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1100;
+}
+
+/* ========== Responsive Adjustments ========== */
+@media (max-width: 991.98px) {
+  .hero-shape {
+    display: none;
+  }
+
+  .auth-branding {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-section {
+    padding-top: 80px !important;
+  }
+
+  .display-4 {
+    font-size: 2rem;
+  }
+
+  .display-5 {
+    font-size: 1.75rem;
+  }
+}
+
+/* ========== Theme Toggle ========== */
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  transform: rotate(15deg);
+}
+
+.theme-toggle i {
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+[data-theme="dark"] .theme-toggle .ph-sun {
+  display: inline;
+}
+
+[data-theme="dark"] .theme-toggle .ph-moon {
+  display: none;
+}
+
+.theme-toggle .ph-sun {
+  display: none;
+}
+
+.theme-toggle .ph-moon {
+  display: inline;
+}
+
+/* ========== Scrollbar ========== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 10px;
+  border: 2px solid #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-color: #1e293b;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* ========== Selection ========== */
+::selection {
+  background: rgba(0, 150, 136, 0.2);
+  color: #004d40;
+}
+
+[data-theme="dark"] ::selection {
+  background: rgba(0, 150, 136, 0.4);
+  color: #e0f2f1;
+}
+
+/* ========== Smooth Theme Transition ========== */
+body,
+.navbar,
+.card,
+.form-control,
+.form-select,
+.btn,
+.dropdown-menu,
+footer,
+section {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
