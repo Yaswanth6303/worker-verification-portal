@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electrical Services - SkillVerify</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/custom.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow-sm" id="mainNavbar">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
+                <div class="logo-icon bg-primary text-white rounded-3 d-flex align-items-center justify-content-center"
+                    style="width: 44px; height: 44px">
+                    <i class="ph-fill ph-shield-check fs-4"></i>
+                </div>
+                <div class="d-flex flex-column">
+                    <span class="fw-bold fs-5">Skill<span class="text-primary">Verify</span></span>
+                    <small class="text-muted d-none d-md-block" style="font-size: 0.7rem">Trusted Workers, Verified
+                        Skills</small>
+                </div>
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Nav Content -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-1" href="../index.html">
+                            <i class="ph ph-house"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-1" href="#">
+                            <i class="ph ph-magnifying-glass"></i> Find Workers
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active d-flex align-items-center gap-1" href="#"
+                            data-bs-toggle="dropdown">
+                            <i class="ph ph-toolbox"></i> Services
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3">
+                            <li>
+                                <a class="dropdown-item py-2" href="plumbing.html"><i class="ph ph-wrench me-2"></i>
+                                    Plumbing</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2 active bg-warning text-dark" href="electrical.html"><i
+                                        class="ph ph-lightning me-2"></i> Electrical</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2" href="painting.html"><i
+                                        class="ph ph-paint-brush me-2 text-danger"></i> Painting</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2" href="carpentry.html"><i
+                                        class="ph ph-hammer me-2 text-info"></i> Carpentry</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2" href="hvac.html"><i
+                                        class="ph ph-fan me-2 text-primary"></i> HVAC</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2" href="cleaning.html"><i
+                                        class="ph ph-broom me-2 text-success"></i> Cleaning</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2" href="#"><i class="ph ph-squares-four me-2"></i> All
+                                    Services</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-1" href="../index.html#how-it-works">
+                            <i class="ph ph-certificate"></i> How It Works
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-1" href="../index.html#why-us">
+                            <i class="ph ph-info"></i> About
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Auth Buttons -->
+                <div class="d-flex gap-2 align-items-center">
+                    <button class="btn btn-outline-secondary theme-toggle" id="themeToggle" title="Toggle theme">
+                        <i class="ph ph-moon" id="themeIcon"></i>
+                    </button>
+
+                    <!-- Guest View -->
+                    <div id="guestNav" class="d-flex gap-2">
+                        <a href="login.html" class="btn btn-outline-primary rounded-pill px-3">
+                            <i class="ph ph-sign-in me-1"></i> Login
+                        </a>
+                        <a href="register.html" class="btn btn-primary rounded-pill px-3">
+                            <i class="ph ph-user-plus me-1"></i> Register
+                        </a>
+                    </div>
+
+                    <!-- Logged In View -->
+                    <div id="userNav" class="d-none">
+                        <input type="file" id="profilePictureInput" class="d-none" accept="image/*" />
+                        <div class="dropdown">
+                            <button class="btn btn-light rounded-pill d-flex align-items-center gap-2 px-3"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center overflow-hidden"
+                                    style="width: 32px; height: 32px" id="userAvatar">
+                                    <i class="ph-fill ph-user"></i>
+                                </div>
+                                <span class="d-none d-md-inline" id="userName">User</span>
+                                <i class="ph ph-caret-down"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+                                <li class="px-3 py-2 border-bottom">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center overflow-hidden position-relative"
+                                            style="width: 50px; height: 50px" id="dropdownAvatar">
+                                            <i class="ph-fill ph-user fs-4"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold" id="userFullName">User Name</div>
+                                            <small class="text-muted" id="userEmail">email@example.com</small>
+                                            <div class="mt-1">
+                                                <button type="button" class="btn btn-outline-primary btn-sm py-0 px-2"
+                                                    id="changePhotoBtn" style="font-size: 0.7rem">
+                                                    <i class="ph ph-camera me-1"></i> Change Photo
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a class="dropdown-item py-2" href="#"><i
+                                            class="ph ph-user-circle me-2 text-primary"></i> My Profile</a></li>
+                                <li><a class="dropdown-item py-2" href="#"><i
+                                            class="ph ph-calendar-check me-2 text-success"></i> My Bookings</a></li>
+                                <li><a class="dropdown-item py-2" href="#"><i
+                                            class="ph ph-gear me-2 text-secondary"></i> Settings</a></li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                                <li>
+                                    <a class="dropdown-item py-2 text-danger" href="#" id="logoutBtn">
+                                        <i class="ph ph-sign-out me-2"></i> Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section position-relative overflow-hidden bg-light"
+            style="padding-top: 100px; padding-bottom: 60px;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <div
+                            class="d-inline-flex align-items-center gap-2 bg-warning bg-opacity-10 text-warning px-3 py-2 rounded-pill mb-4">
+                            <i class="ph-fill ph-lightning"></i>
+                            <span class="fw-semibold text-dark">Professional Electrical Services</span>
+                        </div>
+                        <h1 class="display-4 fw-bold mb-4">
+                            Safe & Reliable <span class="text-warning">Electrical Work</span>
+                        </h1>
+                        <p class="lead text-secondary mb-4">
+                            Certified electricians for all your wiring, installation, and repair needs. We prioritize
+                            safety and quality above all else.
+                        </p>
+                        <div class="d-flex gap-3">
+                            <a href="register.html" class="btn btn-warning btn-lg rounded-pill px-4 text-dark">
+                                <i class="ph ph-magnifying-glass me-2"></i> Find an Electrician
+                            </a>
+                            <a href="#services" class="btn btn-outline-dark btn-lg rounded-pill px-4">
+                                View Services
+                            </a>
+                        </div>
+
+                        <!-- Trust Indicators -->
+                        <div class="row mt-5 g-4">
+                            <div class="col-auto">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="bg-success bg-opacity-10 rounded-circle p-2 text-success"><i
+                                            class="ph-fill ph-check-circle fs-5"></i></div>
+                                    <span class="fw-medium small">Licensed Profs</span>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="bg-success bg-opacity-10 rounded-circle p-2 text-success"><i
+                                            class="ph-fill ph-shield-check fs-5"></i></div>
+                                    <span class="fw-medium small">Safety 100%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <!-- Visual -->
+                        <div class="position-relative">
+                            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                                <div class="bg-warning text-dark p-5 text-center">
+                                    <i class="ph-fill ph-lightning" style="font-size: 8rem; opacity: 0.8;"></i>
+                                </div>
+                                <div class="card-body p-4 bg-white">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h5 class="fw-bold mb-0">Common Electrical Jobs</h5>
+                                        <span class="badge bg-warning text-dark">In Demand</span>
+                                    </div>
+                                    <div class="d-flex flex-column gap-3">
+                                        <div class="d-flex align-items-center gap-3 p-3 bg-light rounded-3">
+                                            <div class="bg-white rounded-circle p-2 shadow-sm text-warning"><i
+                                                    class="ph-fill ph-fan"></i></div>
+                                            <div>
+                                                <h6 class="mb-0 fw-semibold">Fan Installation</h6>
+                                                <small class="text-muted">Starting at ₹150</small>
+                                            </div>
+                                            <i class="ph-bold ph-caret-right ms-auto text-muted"></i>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-3 p-3 bg-light rounded-3">
+                                            <div class="bg-white rounded-circle p-2 shadow-sm text-warning"><i
+                                                    class="ph-fill ph-plugs"></i></div>
+                                            <div>
+                                                <h6 class="mb-0 fw-semibold">Switchboard Repair</h6>
+                                                <small class="text-muted">Starting at ₹250</small>
+                                            </div>
+                                            <i class="ph-bold ph-caret-right ms-auto text-muted"></i>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-3 p-3 bg-light rounded-3">
+                                            <div class="bg-white rounded-circle p-2 shadow-sm text-warning"><i
+                                                    class="ph-fill ph-lightbulb"></i></div>
+                                            <div>
+                                                <h6 class="mb-0 fw-semibold">Light Fitting</h6>
+                                                <small class="text-muted">Starting at ₹100</small>
+                                            </div>
+                                            <i class="ph-bold ph-caret-right ms-auto text-muted"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="py-5" id="services">
+            <div class="container py-5">
+                <div class="text-center mb-5">
+                    <span class="badge bg-warning bg-opacity-10 text-dark px-3 py-2 rounded-pill mb-3">Our
+                        Services</span>
+                    <h2 class="display-5 fw-bold mb-3">Full Range <span class="text-warning">Electrical</span> Support
+                    </h2>
+                    <p class="lead text-secondary col-lg-6 mx-auto">Expert handling of high-voltage and low-voltage
+                        electrical systems.</p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Item 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 service-sub-card hover-lift">
+                            <div class="card-body p-4">
+                                <div class="bg-warning bg-opacity-10 rounded-circle text-warning d-inline-flex align-items-center justify-content-center mb-3"
+                                    style="width: 50px; height: 50px;">
+                                    <i class="ph-fill ph-plugs fs-3"></i>
+                                </div>
+                                <h5 class="fw-bold">Wiring & Rewiring</h5>
+                                <p class="text-secondary small">Complete house wiring, circuit upgrading, and fault
+                                    rectification.</p>
+                                <a href="register.html" class="fw-semibold text-warning text-decoration-none">Book Now
+                                    <i class="ph-bold ph-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 service-sub-card hover-lift">
+                            <div class="card-body p-4">
+                                <div class="bg-warning bg-opacity-10 rounded-circle text-warning d-inline-flex align-items-center justify-content-center mb-3"
+                                    style="width: 50px; height: 50px;">
+                                    <i class="ph-fill ph-fan fs-3"></i>
+                                </div>
+                                <h5 class="fw-bold">Fan & Cooler Repair</h5>
+                                <p class="text-secondary small">Repair and installation of ceiling fans, exhaust fans,
+                                    and water coolers.</p>
+                                <a href="register.html" class="fw-semibold text-warning text-decoration-none">Book Now
+                                    <i class="ph-bold ph-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 service-sub-card hover-lift">
+                            <div class="card-body p-4">
+                                <div class="bg-warning bg-opacity-10 rounded-circle text-warning d-inline-flex align-items-center justify-content-center mb-3"
+                                    style="width: 50px; height: 50px;">
+                                    <i class="ph-fill ph-battery-charging-vertical fs-3"></i>
+                                </div>
+                                <h5 class="fw-bold">Inverter Service</h5>
+                                <p class="text-secondary small">Inverter installation, battery checkup, and maintenance.
+                                </p>
+                                <a href="register.html" class="fw-semibold text-warning text-decoration-none">Book Now
+                                    <i class="ph-bold ph-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 service-sub-card hover-lift">
+                            <div class="card-body p-4">
+                                <div class="bg-warning bg-opacity-10 rounded-circle text-warning d-inline-flex align-items-center justify-content-center mb-3"
+                                    style="width: 50px; height: 50px;">
+                                    <i class="ph-fill ph-laptop fs-3"></i>
+                                </div>
+                                <h5 class="fw-bold">Appliance Install</h5>
+                                <p class="text-secondary small">Installation of TV units, computers, and other
+                                    electronic appliances.</p>
+                                <a href="register.html" class="fw-semibold text-warning text-decoration-none">Book Now
+                                    <i class="ph-bold ph-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 service-sub-card hover-lift">
+                            <div class="card-body p-4">
+                                <div class="bg-warning bg-opacity-10 rounded-circle text-warning d-inline-flex align-items-center justify-content-center mb-3"
+                                    style="width: 50px; height: 50px;">
+                                    <i class="ph-fill ph-lightbulb fs-3"></i>
+                                </div>
+                                <h5 class="fw-bold">Fancylight Fitting</h5>
+                                <p class="text-secondary small">Installation of chandeliers, decorative lights, and LED
+                                    strips.</p>
+                                <a href="register.html" class="fw-semibold text-warning text-decoration-none">Book Now
+                                    <i class="ph-bold ph-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 service-sub-card hover-lift">
+                            <div class="card-body p-4">
+                                <div class="bg-warning bg-opacity-10 rounded-circle text-warning d-inline-flex align-items-center justify-content-center mb-3"
+                                    style="width: 50px; height: 50px;">
+                                    <i class="ph-fill ph-door fs-3"></i>
+                                </div>
+                                <h5 class="fw-bold">Doorbell & Security</h5>
+                                <p class="text-secondary small">Installation of video door phones, bells, and basic
+                                    security systems.</p>
+                                <a href="register.html" class="fw-semibold text-warning text-decoration-none">Book Now
+                                    <i class="ph-bold ph-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="bg-warning text-dark rounded-4 p-5 text-center position-relative overflow-hidden">
+                    <!-- Abstract shapes -->
+                    <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10" style="pointer-events: none;">
+                        <div class="position-absolute top-0 end-0 bg-white rounded-circle"
+                            style="width: 300px; height: 300px; transform: translate(30%, -30%);"></div>
+                        <div class="position-absolute bottom-0 start-0 bg-white rounded-circle"
+                            style="width: 200px; height: 200px; transform: translate(-30%, 30%);"></div>
+                    </div>
+
+                    <div class="position-relative z-1">
+                        <h2 class="fw-bold mb-3">Still Check Other Services?</h2>
+                        <p class="lead opacity-90 mb-4">We have experts across multiple domains ready to serve you.</p>
+                        <a href="../index.html#services"
+                            class="btn btn-dark btn-lg rounded-pill px-5 fw-semibold text-warning">Browse All
+                            Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a class="d-flex align-items-center gap-2 text-decoration-none mb-3" href="../index.html">
+                        <div class="bg-white bg-opacity-10 rounded-3 d-flex align-items-center justify-content-center"
+                            style="width: 44px; height: 44px">
+                            <i class="ph-fill ph-shield-check fs-4 text-white"></i>
+                        </div>
+                        <div>
+                            <span class="fw-bold fs-5 text-white">Skill<span class="text-primary">Verify</span></span>
+                        </div>
+                    </a>
+                    <p class="text-white-50 mb-4">
+                        India's trusted platform for verified local skilled workers.
+                        Background checked, skill certified professionals at your
+                        doorstep.
+                    </p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle"><i
+                                class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle"><i
+                                class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle"><i
+                                class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="fw-bold mb-3">Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="plumbing.html" class="text-white-50 text-decoration-none">Plumbing</a>
+                        </li>
+                        <li class="mb-2"><a href="electrical.html"
+                                class="text-white text-decoration-underline">Electrical</a></li>
+                        <li class="mb-2"><a href="painting.html" class="text-white-50 text-decoration-none">Painting</a>
+                        </li>
+                        <li class="mb-2"><a href="carpentry.html"
+                                class="text-white-50 text-decoration-none">Carpentry</a></li>
+                        <li class="mb-2"><a href="hvac.html" class="text-white-50 text-decoration-none">HVAC</a></li>
+                        <li class="mb-2"><a href="cleaning.html" class="text-white-50 text-decoration-none">Cleaning</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-3 col-lg-2">
+                    <!-- ... Copied from previous files ... shortcutting for brevity only in thought, but full content will be written -->
+                    <h6 class="fw-bold mb-3">Company</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">How It Works</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Careers</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Press</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="fw-bold mb-3">Support</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Help Center</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Contact Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">FAQs</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Dispute Resolution</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="fw-bold mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Terms of Service</a>
+                        </li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Cookie Policy</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-secondary" />
+
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                <p class="text-white-50 mb-0">&copy; 2025 SkillVerify. All rights reserved.</p>
+                <div class="d-flex gap-3">
+                    <span class="badge bg-secondary bg-opacity-25 text-white-50"><i
+                            class="ph-fill ph-shield-check me-1"></i> Secure Platform</span>
+                    <span class="badge bg-secondary bg-opacity-25 text-white-50"><i class="ph-fill ph-lock me-1"></i>
+                        SSL Encrypted</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="../js/landing.js"></script>
+</body>
+
+</html>
