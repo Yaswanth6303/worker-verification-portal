@@ -1,9 +1,8 @@
 // Prisma schema for SkillVerify Worker Verification Portal
 
 generator client {
-  provider        = "prisma-client-js"
-  output          = "../generated/prisma"
-  previewFeatures = ["driverAdapters"]
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
 }
 
 datasource db {

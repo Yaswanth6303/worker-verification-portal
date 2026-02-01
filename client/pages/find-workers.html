@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plumbing Services - SkillVerify</title>
+    <title>Find Workers - SkillVerify</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -59,19 +59,19 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center gap-1" href="find-workers.html">
+                        <a class="nav-link d-flex align-items-center gap-1 active" href="find-workers.html">
                             <i class="ph ph-magnifying-glass"></i> Find Workers
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active d-flex align-items-center gap-1" href="#"
+                        <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#"
                             data-bs-toggle="dropdown">
                             <i class="ph ph-toolbox"></i> Services
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3">
                             <li>
-                                <a class="dropdown-item py-2 active bg-primary text-white" href="plumbing.html"><i
-                                        class="ph ph-wrench me-2"></i> Plumbing</a>
+                                <a class="dropdown-item py-2" href="plumbing.html"><i class="ph ph-wrench me-2"></i>
+                                    Plumbing</a>
                             </li>
                             <li>
                                 <a class="dropdown-item py-2" href="electrical.html"><i
@@ -188,230 +188,177 @@
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="hero-section position-relative overflow-hidden bg-light"
+        <section class="hero-section position-relative overflow-hidden bg-item-subtle"
             style="padding-top: 100px; padding-bottom: 60px;">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="row align-items-center text-center">
+                    <div class="col-lg-8 mx-auto">
                         <div
                             class="d-inline-flex align-items-center gap-2 bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-4">
-                            <i class="ph-fill ph-wrench"></i>
-                            <span class="fw-semibold">Professional Plumbing Services</span>
+                            <i class="ph-fill ph-magnifying-glass"></i>
+                            <span class="fw-semibold">Search Professionals</span>
                         </div>
                         <h1 class="display-4 fw-bold mb-4">
-                            Expert <span class="text-primary">Plumbing Solutions</span> for Your Home
+                            Find the <span class="text-primary">Perfect Worker</span> for the Job
                         </h1>
                         <p class="lead text-secondary mb-4">
-                            From leaky faucets to complete bathroom installations, our verified plumbers are ready to
-                            help. Fast, reliable, and affordable service guaranteed.
+                            Browse through our database of verified plumbers, electricians, painters, and more.
                         </p>
-                        <div class="d-flex gap-3">
-                            <a href="register.html" class="btn btn-primary btn-lg rounded-pill px-4">
-                                <i class="ph ph-magnifying-glass me-2"></i> Find a Plumber
-                            </a>
-                            <a href="#services" class="btn btn-outline-dark btn-lg rounded-pill px-4">
-                                View Services
-                            </a>
-                        </div>
-
-                        <!-- Trust Indicators -->
-                        <div class="row mt-5 g-4">
-                            <div class="col-auto">
-                                <div class="d-flex align-items-center gap-2">
-                                    <div class="bg-success bg-opacity-10 rounded-circle p-2 text-success"><i
-                                            class="ph-fill ph-check-circle fs-5"></i></div>
-                                    <span class="fw-medium small">Verified Professionals</span>
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <div class="d-flex align-items-center gap-2">
-                                    <div class="bg-success bg-opacity-10 rounded-circle p-2 text-success"><i
-                                            class="ph-fill ph-clock fs-5"></i></div>
-                                    <span class="fw-medium small">On-Time Service</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <!-- Placeholder for Hero Image - using a nice card design instead of image if no image available -->
-                        <div class="position-relative">
-                            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
-                                <div class="bg-primary text-white p-5 text-center">
-                                    <i class="ph-fill ph-wrench" style="font-size: 8rem; opacity: 0.8;"></i>
-                                </div>
-                                <div class="card-body p-4 bg-white">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <h5 class="fw-bold mb-0">Popular Plumbing Requests</h5>
-                                        <span class="badge bg-primary">Top Rated</span>
-                                    </div>
-                                    <div class="d-flex flex-column gap-3">
-                                        <div class="d-flex align-items-center gap-3 p-3 bg-item-subtle rounded-3">
-                                            <div class="bg-white rounded-circle p-2 shadow-sm text-primary"><i
-                                                    class="ph-fill ph-drop"></i></div>
-                                            <div>
-                                                <h6 class="mb-0 fw-semibold">Leak Repair</h6>
-                                                <small class="text-muted">Starting at ₹299</small>
-                                            </div>
-                                            <i class="ph-bold ph-caret-right ms-auto text-muted"></i>
-                                        </div>
-                                        <div class="d-flex align-items-center gap-3 p-3 bg-item-subtle rounded-3">
-                                            <div class="bg-white rounded-circle p-2 shadow-sm text-primary"><i
-                                                    class="ph-fill ph-gear"></i></div>
-                                            <div>
-                                                <h6 class="mb-0 fw-semibold">Tap & Mixer Fitting</h6>
-                                                <small class="text-muted">Starting at ₹199</small>
-                                            </div>
-                                            <i class="ph-bold ph-caret-right ms-auto text-muted"></i>
-                                        </div>
-                                        <div class="d-flex align-items-center gap-3 p-3 bg-item-subtle rounded-3">
-                                            <div class="bg-white rounded-circle p-2 shadow-sm text-primary"><i
-                                                    class="ph-fill ph-toilet"></i></div>
-                                            <div>
-                                                <h6 class="mb-0 fw-semibold">Sanitary Ware</h6>
-                                                <small class="text-muted">Starting at ₹499</small>
-                                            </div>
-                                            <i class="ph-bold ph-caret-right ms-auto text-muted"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Decorative Elements -->
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Grid -->
-        <section class="py-5" id="services">
+        <!-- Search & Filter Section -->
+        <section class="py-5" id="find-workers">
             <div class="container py-5">
-                <div class="text-center mb-5">
-                    <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-3">Our
-                        Services</span>
-                    <h2 class="display-5 fw-bold mb-3">All Plumbing <span class="text-primary">Solutions</span></h2>
-                    <p class="lead text-secondary col-lg-6 mx-auto">Choose from our wide range of plumbing services
-                        tailored to your needs.</p>
-                </div>
-
                 <div class="row g-4">
-                    <!-- Item 1 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 service-sub-card hover-lift">
-                            <div class="card-body p-4">
-                                <div class="bg-primary bg-opacity-10 rounded-circle text-primary d-inline-flex align-items-center justify-content-center mb-3"
-                                    style="width: 50px; height: 50px;">
-                                    <i class="ph-fill ph-drop fs-3"></i>
+                    <!-- Filters -->
+                    <div class="col-lg-3">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 sticky-top" style="top: 100px; z-index: 10;">
+                            <h5 class="fw-bold mb-4">Filters</h5>
+                            <div class="mb-4">
+                                <label class="form-label fw-medium small text-uppercase text-muted">Service Type</label>
+                                <div class="d-flex flex-column gap-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="checkPlumbing" checked>
+                                        <label class="form-check-label" for="checkPlumbing">Plumbing</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="checkElectrical" checked>
+                                        <label class="form-check-label" for="checkElectrical">Electrical</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="checkCleaning" checked>
+                                        <label class="form-check-label" for="checkCleaning">Cleaning</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="checkPainting" checked>
+                                        <label class="form-check-label" for="checkPainting">Painting</label>
+                                    </div>
                                 </div>
-                                <h5 class="fw-bold">Leakage Repair</h5>
-                                <p class="text-secondary small">Fixing leaks in pipes, taps, and sanitary ware to
-                                    prevent water wastage and damage.</p>
-                                <a href="register.html" class="fw-semibold text-primary text-decoration-none">Book Now
-                                    <i class="ph-bold ph-arrow-right"></i></a>
                             </div>
                         </div>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 service-sub-card hover-lift">
-                            <div class="card-body p-4">
-                                <div class="bg-primary bg-opacity-10 rounded-circle text-primary d-inline-flex align-items-center justify-content-center mb-3"
-                                    style="width: 50px; height: 50px;">
-                                    <i class="ph-fill ph-arrows-clockwise fs-3"></i>
-                                </div>
-                                <h5 class="fw-bold">Drain Cleaning</h5>
-                                <p class="text-secondary small">Unclogging drains, sinks, and sewage pipes using
-                                    advanced equipment.</p>
-                                <a href="register.html" class="fw-semibold text-primary text-decoration-none">Book Now
-                                    <i class="ph-bold ph-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 service-sub-card hover-lift">
-                            <div class="card-body p-4">
-                                <div class="bg-primary bg-opacity-10 rounded-circle text-primary d-inline-flex align-items-center justify-content-center mb-3"
-                                    style="width: 50px; height: 50px;">
-                                    <i class="ph-fill ph-toilet fs-3"></i>
-                                </div>
-                                <h5 class="fw-bold">Bathroom Fittings</h5>
-                                <p class="text-secondary small">Installation and repair of commodes, washbasins,
-                                    showers, and bath accessories.</p>
-                                <a href="register.html" class="fw-semibold text-primary text-decoration-none">Book Now
-                                    <i class="ph-bold ph-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Item 4 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 service-sub-card hover-lift">
-                            <div class="card-body p-4">
-                                <div class="bg-primary bg-opacity-10 rounded-circle text-primary d-inline-flex align-items-center justify-content-center mb-3"
-                                    style="width: 50px; height: 50px;">
-                                    <i class="ph-fill ph-fire fs-3"></i>
-                                </div>
-                                <h5 class="fw-bold">Water Heater Service</h5>
-                                <p class="text-secondary small">Installation, repair, and maintenance of geysers and
-                                    water heating systems.</p>
-                                <a href="register.html" class="fw-semibold text-primary text-decoration-none">Book Now
-                                    <i class="ph-bold ph-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Item 5 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 service-sub-card hover-lift">
-                            <div class="card-body p-4">
-                                <div class="bg-primary bg-opacity-10 rounded-circle text-primary d-inline-flex align-items-center justify-content-center mb-3"
-                                    style="width: 50px; height: 50px;">
-                                    <i class="ph-fill ph-drop-half-bottom fs-3"></i>
-                                </div>
-                                <h5 class="fw-bold">Water Tank Service</h5>
-                                <p class="text-secondary small">Cleaning and maintenance of overhead and underground
-                                    water tanks.</p>
-                                <a href="register.html" class="fw-semibold text-primary text-decoration-none">Book Now
-                                    <i class="ph-bold ph-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Item 6 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 service-sub-card hover-lift">
-                            <div class="card-body p-4">
-                                <div class="bg-primary bg-opacity-10 rounded-circle text-primary d-inline-flex align-items-center justify-content-center mb-3"
-                                    style="width: 50px; height: 50px;">
-                                    <i class="ph-fill ph-gear-six fs-3"></i>
-                                </div>
-                                <h5 class="fw-bold">General Plumbing</h5>
-                                <p class="text-secondary small">Motor installation, pipe fitting, and general
-                                    maintenance work.</p>
-                                <a href="register.html" class="fw-semibold text-primary text-decoration-none">Book Now
-                                    <i class="ph-bold ph-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <section class="py-5 bg-light">
-            <div class="container">
-                <div class="bg-primary text-white rounded-4 p-5 text-center position-relative overflow-hidden">
-                    <!-- Abstract shapes -->
-                    <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10" style="pointer-events: none;">
-                        <div class="position-absolute top-0 end-0 bg-white rounded-circle"
-                            style="width: 300px; height: 300px; transform: translate(30%, -30%);"></div>
-                        <div class="position-absolute bottom-0 start-0 bg-white rounded-circle"
-                            style="width: 200px; height: 200px; transform: translate(-30%, 30%);"></div>
                     </div>
 
-                    <div class="position-relative z-1">
-                        <h2 class="fw-bold mb-3">Still Check Other Services?</h2>
-                        <p class="lead opacity-90 mb-4">We have experts across multiple domains ready to serve you.</p>
-                        <a href="../index.html#services"
-                            class="btn btn-light btn-lg rounded-pill px-5 fw-semibold text-primary">Browse All
-                            Services</a>
+                    <!-- Grid -->
+                    <div class="col-lg-9">
+                        <!-- Search Bar -->
+                        <div class="card border-0 shadow-sm rounded-4 p-2 mb-4">
+                            <div class="d-flex align-items-center px-2">
+                                <i class="ph ph-magnifying-glass fs-4 text-muted ps-2"></i>
+                                <input type="text" class="form-control border-0 shadow-none py-2" id="workerSearchInput"
+                                    placeholder="Search by name or skill...">
+                                <button class="btn btn-primary rounded-pill px-4" id="workerSearchBtn">Search</button>
+                            </div>
+                        </div>
+
+                        <div class="row g-4" id="workerGrid">
+                            <!-- Worker Card 1 -->
+                            <div class="col-md-6 worker-card-item" data-service="plumbing" data-name="ramesh kumar"
+                                data-price="299">
+                                <div class="card border-0 shadow-sm rounded-4 hover-lift h-100">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex align-items-center gap-3 mb-3">
+                                            <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                                                style="width: 60px; height: 60px">
+                                                <i class="ph-fill ph-user fs-3 text-primary"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="fw-bold mb-1">Ramesh Kumar</h5>
+                                                <span
+                                                    class="badge bg-primary bg-opacity-10 text-primary rounded-pill">Plumbing</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary small mb-3">Experienced plumber specializing in leak
+                                            repairs and pipe fitting. 5+ years of experience.</p>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <span class="fw-bold text-dark">₹299/visit</span>
+                                            <button class="btn btn-outline-primary rounded-pill btn-sm">View
+                                                Profile</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Worker Card 2 -->
+                            <div class="col-md-6 worker-card-item" data-service="electrical" data-name="amit sharma"
+                                data-price="199">
+                                <div class="card border-0 shadow-sm rounded-4 hover-lift h-100">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex align-items-center gap-3 mb-3">
+                                            <div class="bg-warning bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                                                style="width: 60px; height: 60px">
+                                                <i class="ph-fill ph-lightning fs-3 text-warning"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="fw-bold mb-1">Amit Sharma</h5>
+                                                <span
+                                                    class="badge bg-warning bg-opacity-10 text-warning rounded-pill">Electrical</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary small mb-3">Certified electrician for house wiring and
+                                            appliance repair. 3 years experience.</p>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <span class="fw-bold text-dark">₹199/visit</span>
+                                            <button class="btn btn-outline-warning rounded-pill btn-sm">View
+                                                Profile</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Worker Card 3 -->
+                            <div class="col-md-6 worker-card-item" data-service="cleaning" data-name="sunita devi"
+                                data-price="499">
+                                <div class="card border-0 shadow-sm rounded-4 hover-lift h-100">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex align-items-center gap-3 mb-3">
+                                            <div class="bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                                                style="width: 60px; height: 60px">
+                                                <i class="ph-fill ph-broom fs-3 text-success"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="fw-bold mb-1">Sunita Devi</h5>
+                                                <span
+                                                    class="badge bg-success bg-opacity-10 text-success rounded-pill">Cleaning</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary small mb-3">Professional home cleaner. Deep cleaning,
+                                            sofa cleaning, and sanitization services.</p>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <span class="fw-bold text-dark">₹499/visit</span>
+                                            <button class="btn btn-outline-success rounded-pill btn-sm">View
+                                                Profile</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Worker Card 4 -->
+                            <div class="col-md-6 worker-card-item" data-service="painting" data-name="vikram singh"
+                                data-price="5">
+                                <div class="card border-0 shadow-sm rounded-4 hover-lift h-100">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex align-items-center gap-3 mb-3">
+                                            <div class="bg-danger bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                                                style="width: 60px; height: 60px">
+                                                <i class="ph-fill ph-paint-brush fs-3 text-danger"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="fw-bold mb-1">Vikram Singh</h5>
+                                                <span
+                                                    class="badge bg-danger bg-opacity-10 text-danger rounded-pill">Painting</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary small mb-3">Expert painter for wall painting, texture
+                                            designing, and waterproofing.</p>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <span class="fw-bold text-dark">₹5/sqft</span>
+                                            <button class="btn btn-outline-danger rounded-pill btn-sm">View
+                                                Profile</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -452,8 +399,8 @@
                 <div class="col-6 col-md-3 col-lg-2">
                     <h6 class="fw-bold mb-3">Services</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="plumbing.html"
-                                class="text-white text-decoration-underline">Plumbing</a></li>
+                        <li class="mb-2"><a href="plumbing.html" class="text-white-50 text-decoration-none">Plumbing</a>
+                        </li>
                         <li class="mb-2"><a href="electrical.html"
                                 class="text-white-50 text-decoration-none">Electrical</a></li>
                         <li class="mb-2"><a href="painting.html" class="text-white-50 text-decoration-none">Painting</a>
@@ -519,6 +466,81 @@
 
     <!-- Custom Scripts -->
     <script src="../js/landing.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('workerSearchInput');
+            const searchBtn = document.getElementById('workerSearchBtn');
+            const workerGrid = document.getElementById('workerGrid');
+            const workerItems = document.querySelectorAll('.worker-card-item');
+            const checkboxes = {
+                plumbing: document.getElementById('checkPlumbing'),
+                electrical: document.getElementById('checkElectrical'),
+                cleaning: document.getElementById('checkCleaning'),
+                painting: document.getElementById('checkPainting')
+            };
+
+            function filterWorkers() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const activeServices = Object.keys(checkboxes).filter(key => checkboxes[key].checked);
+
+                let visibleCount = 0;
+
+                workerItems.forEach(item => {
+                    const name = item.getAttribute('data-name');
+                    const service = item.getAttribute('data-service');
+                    const cardBody = item.querySelector('.card-body').innerText.toLowerCase();
+
+                    const matchesSearch = name.includes(searchTerm) || cardBody.includes(searchTerm);
+                    const matchesService = activeServices.includes(service);
+
+                    if (matchesSearch && matchesService) {
+                        item.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                // Show "No results" message if needed
+                let noResultsMsg = document.getElementById('noResultsMsg');
+                if (visibleCount === 0) {
+                    if (!noResultsMsg) {
+                        noResultsMsg = document.createElement('div');
+                        noResultsMsg.id = 'noResultsMsg';
+                        noResultsMsg.className = 'col-12 text-center py-5';
+                        noResultsMsg.innerHTML = '<div class="text-muted"><i class="ph ph-magnifying-glass fs-1 mb-3"></i><p>No professionals found matching your criteria.</p></div>';
+                        workerGrid.appendChild(noResultsMsg);
+                    } else {
+                        noResultsMsg.style.display = 'block';
+                    }
+                } else if (noResultsMsg) {
+                    noResultsMsg.style.display = 'none';
+                }
+            }
+
+            // Event Listeners
+            searchBtn.addEventListener('click', filterWorkers);
+            searchInput.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') filterWorkers();
+                else filterWorkers(); // Live search
+            });
+
+            Object.values(checkboxes).forEach(cb => {
+                if (cb) cb.addEventListener('change', filterWorkers);
+            });
+
+            // View Profile Buttons
+            const viewProfileBtns = document.querySelectorAll('.btn-outline-primary, .btn-outline-warning, .btn-outline-success, .btn-outline-danger');
+            viewProfileBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    // Mock interaction
+                    const card = this.closest('.card');
+                    const name = card.querySelector('h5').innerText;
+                    alert(`View Profile feature for ${name} coming soon!`);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

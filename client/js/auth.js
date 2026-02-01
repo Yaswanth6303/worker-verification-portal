@@ -4,7 +4,7 @@
 ======================================== */
 
 // API Base URL - change this in production
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "http://localhost:3000/api";
 
 document.addEventListener("DOMContentLoaded", () => {
   // Redirect if already logged in
