@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import authRoutes from './routes/auth.routes.js';
+import workerRoutes from './routes/worker.routes.js';
+import bookingRoutes from './routes/booking.routes.js';
 
 const app = express();
 
@@ -9,7 +11,7 @@ app.use(helmet());
 
 app.use(
   cors({
-    origin: ['http://127.0.0.1:5500', 'http://localhost:5500'],
+    origin: '*', // Allow all origins for testing
     credentials: true,
   }),
 );
@@ -29,6 +31,8 @@ app.get('/api', (req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/workers', workerRoutes);
+app.use('/api/bookings', bookingRoutes);
 
 app.use((req, res) => {
   res.status(404).json({

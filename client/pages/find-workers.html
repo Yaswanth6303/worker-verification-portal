@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Workers - SkillVerify</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/custom.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow-sm" id="mainNavbar">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
+                <div class="logo-icon bg-primary text-white rounded-3 d-flex align-items-center justify-content-center"
+                    style="width: 44px; height: 44px">
+                    <i class="ph-fill ph-shield-check fs-4"></i>
+                </div>
+                <div class="d-flex flex-column">
+                    <span class="fw-bold fs-5">Skill<span class="text-primary">Verify</span></span>
+                    <small class="text-muted d-none d-md-block" style="font-size: 0.7rem">Trusted Workers, Verified
+                        Skills</small>
+                </div>
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Nav Content -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-1" href="../index.html">
+                            <i class="ph ph-house"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-1 active" href="find-workers.html">
+                            <i class="ph ph-magnifying-glass"></i> Find Workers
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#"
+                            data-bs-toggle="dropdown">
+                            <i class="ph ph-toolbox"></i> Services
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3">
+                            <li>
+                                <a class="dropdown-item py-2" href="plumbing.html"><i class="ph ph-wrench me-2"></i>
+                                    Plumbing</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2" href="electrical.html"><i
+                                        class="ph ph-lightning me-2 text-purple"></i> Electrical</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2" href="painting.html"><i
+                                        class="ph ph-paint-brush me-2 text-danger"></i> Painting</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2" href="carpentry.html"><i
+                                        class="ph ph-hammer me-2 text-info"></i> Carpentry</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2" href="hvac.html"><i
+                                        class="ph ph-fan me-2 text-primary"></i> HVAC</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2" href="cleaning.html"><i
+                                        class="ph ph-broom me-2 text-success"></i> Cleaning</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2" href="services.html"><i
+                                        class="ph ph-squares-four me-2"></i> All
+                                    Services</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-1" href="../index.html#how-it-works">
+                            <i class="ph ph-certificate"></i> How It Works
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-1" href="../index.html#why-us">
+                            <i class="ph ph-info"></i> About
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Auth Buttons -->
+                <div class="d-flex gap-2 align-items-center">
+                    <button class="btn btn-outline-secondary theme-toggle" id="themeToggle" title="Toggle theme">
+                        <i class="ph ph-moon" id="themeIcon"></i>
+                    </button>
+
+                    <!-- Guest View -->
+                    <div id="guestNav" class="d-flex gap-2">
+                        <a href="login.html" class="btn btn-outline-primary rounded-pill px-3">
+                            <i class="ph ph-sign-in me-1"></i> Login
+                        </a>
+                        <a href="register.html" class="btn btn-primary rounded-pill px-3">
+                            <i class="ph ph-user-plus me-1"></i> Register
+                        </a>
+                    </div>
+
+                    <!-- Logged In View -->
+                    <div id="userNav" class="d-none">
+                        <input type="file" id="profilePictureInput" class="d-none" accept="image/*" />
+                        <div class="dropdown">
+                            <button class="btn btn-light rounded-pill d-flex align-items-center gap-2 px-3"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center overflow-hidden"
+                                    style="width: 32px; height: 32px" id="userAvatar">
+                                    <i class="ph-fill ph-user"></i>
+                                </div>
+                                <span class="d-none d-md-inline" id="userName">User</span>
+                                <i class="ph ph-caret-down"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+                                <li class="px-3 py-2 border-bottom">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center overflow-hidden position-relative"
+                                            style="width: 50px; height: 50px" id="dropdownAvatar">
+                                            <i class="ph-fill ph-user fs-4"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold" id="userFullName">User Name</div>
+                                            <small class="text-muted" id="userEmail">email@example.com</small>
+                                            <div class="mt-1">
+                                                <button type="button" class="btn btn-outline-primary btn-sm py-0 px-2"
+                                                    id="changePhotoBtn" style="font-size: 0.7rem">
+                                                    <i class="ph ph-camera me-1"></i> Change Photo
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a class="dropdown-item py-2" href="#"><i
+                                            class="ph ph-user-circle me-2 text-primary"></i> My Profile</a></li>
+                                <li><a class="dropdown-item py-2" href="#"><i
+                                            class="ph ph-calendar-check me-2 text-success"></i> My Bookings</a></li>
+                                <li><a class="dropdown-item py-2" href="#"><i
+                                            class="ph ph-gear me-2 text-secondary"></i> Settings</a></li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                                <li>
+                                    <a class="dropdown-item py-2 text-danger" href="#" id="logoutBtn">
+                                        <i class="ph ph-sign-out me-2"></i> Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section position-relative overflow-hidden bg-item-subtle"
+            style="padding-top: 100px; padding-bottom: 60px;">
+            <div class="container">
+                <div class="row align-items-center text-center">
+                    <div class="col-lg-8 mx-auto">
+                        <div
+                            class="d-inline-flex align-items-center gap-2 bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-4">
+                            <i class="ph-fill ph-magnifying-glass"></i>
+                            <span class="fw-semibold">Search Professionals</span>
+                        </div>
+                        <h1 class="display-4 fw-bold mb-4">
+                            Find the <span class="text-primary">Perfect Worker</span> for the Job
+                        </h1>
+                        <p class="lead text-secondary mb-4">
+                            Browse through our database of verified plumbers, electricians, painters, and more.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search & Filter Section -->
+        <section class="py-5" id="find-workers">
+            <div class="container py-5">
+                <div class="row g-4">
+                    <!-- Filters -->
+                    <div class="col-lg-3">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 sticky-top" style="top: 100px; z-index: 10;">
+                            <h5 class="fw-bold mb-4">Filters</h5>
+                            <div class="mb-4">
+                                <label class="form-label fw-medium small text-uppercase text-muted">Service Type</label>
+                                <div class="d-flex flex-column gap-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="checkPlumbing" checked>
+                                        <label class="form-check-label" for="checkPlumbing">Plumbing</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="checkElectrical" checked>
+                                        <label class="form-check-label" for="checkElectrical">Electrical</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="checkCleaning" checked>
+                                        <label class="form-check-label" for="checkCleaning">Cleaning</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="checkPainting" checked>
+                                        <label class="form-check-label" for="checkPainting">Painting</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grid -->
+                    <div class="col-lg-9">
+                        <!-- Search Bar -->
+                        <div class="card border-0 shadow-sm rounded-4 p-2 mb-4">
+                            <div class="d-flex align-items-center px-2">
+                                <i class="ph ph-magnifying-glass fs-4 text-muted ps-2"></i>
+                                <input type="text" class="form-control border-0 shadow-none py-2" id="workerSearchInput"
+                                    placeholder="Search by name or skill...">
+                                <button class="btn btn-primary rounded-pill px-4" id="workerSearchBtn">Search</button>
+                            </div>
+                        </div>
+
+                        <div class="row g-4" id="workerGrid">
+                            <!-- Workers will be loaded here dynamically -->
+                            <div class="col-12 text-center py-5" id="loadingSpinner">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="text-muted mt-2">Finding professionals near you...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a class="d-flex align-items-center gap-2 text-decoration-none mb-3" href="../index.html">
+                        <div class="bg-white bg-opacity-10 rounded-3 d-flex align-items-center justify-content-center"
+                            style="width: 44px; height: 44px">
+                            <i class="ph-fill ph-shield-check fs-4 text-white"></i>
+                        </div>
+                        <div>
+                            <span class="fw-bold fs-5 text-white">Skill<span class="text-primary">Verify</span></span>
+                        </div>
+                    </a>
+                    <p class="text-white-50 mb-4">
+                        India's trusted platform for verified local skilled workers.
+                        Background checked, skill certified professionals at your
+                        doorstep.
+                    </p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle"><i
+                                class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle"><i
+                                class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle"><i
+                                class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="fw-bold mb-3">Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="plumbing.html" class="text-white-50 text-decoration-none">Plumbing</a>
+                        </li>
+                        <li class="mb-2"><a href="electrical.html"
+                                class="text-white-50 text-decoration-none">Electrical</a></li>
+                        <li class="mb-2"><a href="painting.html" class="text-white-50 text-decoration-none">Painting</a>
+                        </li>
+                        <li class="mb-2"><a href="carpentry.html"
+                                class="text-white-50 text-decoration-none">Carpentry</a></li>
+                        <li class="mb-2"><a href="hvac.html" class="text-white-50 text-decoration-none">HVAC</a></li>
+                        <li class="mb-2"><a href="cleaning.html" class="text-white-50 text-decoration-none">Cleaning</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="fw-bold mb-3">Company</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">How It Works</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Careers</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Press</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="fw-bold mb-3">Support</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Help Center</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Contact Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">FAQs</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Dispute Resolution</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="fw-bold mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Terms of Service</a>
+                        </li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Cookie Policy</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-secondary" />
+
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                <p class="text-white-50 mb-0">&copy; 2026 SkillVerify. All rights reserved.</p>
+                <div class="d-flex gap-3">
+                    <span class="badge bg-secondary bg-opacity-25 text-white-50"><i
+                            class="ph-fill ph-shield-check me-1"></i> Secure Platform</span>
+                    <span class="badge bg-secondary bg-opacity-25 text-white-50"><i class="ph-fill ph-lock me-1"></i>
+                        SSL Encrypted</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="../js/landing.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('workerSearchInput');
+            const searchBtn = document.getElementById('workerSearchBtn');
+            const workerGrid = document.getElementById('workerGrid');
+
+            const checkboxes = {
+                plumbing: document.getElementById('checkPlumbing'),
+                electrical: document.getElementById('checkElectrical'),
+                cleaning: document.getElementById('checkCleaning'),
+                painting: document.getElementById('checkPainting')
+            };
+
+            // Debounce function for smooth search
+            function debounce(func, timeout = 300) {
+                let timer;
+                return (...args) => {
+                    clearTimeout(timer);
+                    timer = setTimeout(() => { func.apply(this, args); }, timeout);
+                };
+            }
+
+            async function fetchWorkers() {
+                // Show spinner
+                workerGrid.innerHTML = `
+                    <div class="col-12 text-center py-5" id="loadingSpinner">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="text-muted mt-2">Finding professionals near you...</p>
+                    </div>`;
+
+                // Build query params
+                const searchTerm = searchInput.value.trim();
+                const activeServices = Object.keys(checkboxes)
+                    .filter(key => checkboxes[key] && checkboxes[key].checked);
+
+                const params = new URLSearchParams();
+                if (searchTerm) params.append('search', searchTerm);
+                activeServices.forEach(service => params.append('service', service));
+
+                try {
+                    // API Call
+                    const response = await fetch(`http://localhost:3000/api/workers?${params.toString()}`);
+                    const result = await response.json();
+
+                    if (result.success && result.data.length > 0) {
+                        displayWorkers(result.data);
+                    } else {
+                        showNoResults();
+                    }
+                } catch (error) {
+                    console.error('Error fetching workers:', error);
+                    // Fallback for demo if API fails
+                    showNoResults();
+                }
+            }
+
+            function displayWorkers(workers) {
+                workerGrid.innerHTML = ''; // Clear spinner
+
+                workers.forEach(worker => {
+                    const card = createWorkerCard(worker);
+                    workerGrid.innerHTML += card;
+                });
+            }
+
+            function createWorkerCard(worker) {
+                // Determine badge colors based on service (simple logic)
+                let colorClass = 'primary';
+                let iconClass = 'wrench';
+                const serviceLower = worker.service.toLowerCase();
+
+                if (serviceLower.includes('electric')) { colorClass = 'warning'; iconClass = 'lightning'; }
+                else if (serviceLower.includes('clean')) { colorClass = 'success'; iconClass = 'broom'; }
+                else if (serviceLower.includes('paint')) { colorClass = 'danger'; iconClass = 'paint-brush'; }
+
+                return `
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm rounded-4 hover-lift h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="bg-${colorClass} bg-opacity-10 p-1 rounded-circle position-relative">
+                                    <img src="${worker.profilePicture || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(worker.name)}" alt="${worker.name}"
+                                        class="rounded-circle" width="64" height="64">
+                                    ${worker.verified ? '<span class="position-absolute bottom-0 end-0 bg-success border border-white rounded-circle p-1"></span>' : ''}
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">${worker.name}</h5>
+                                    <div class="d-flex align-items-center gap-2 small text-muted">
+                                        <span><i class="ph-fill ph-map-pin text-primary"></i> ${worker.city || 'Available'}</span>
+                                        <span>•</span>
+                                        <span><i class="ph-fill ph-briefcase text-primary"></i> ${worker.experience || 'Exp'}</span>
+                                    </div>
+                                </div>
+                                <div class="ms-auto text-end">
+                                    <div class="d-flex align-items-center gap-1 text-warning mb-1">
+                                        <span class="fw-bold text-dark">${worker.rating ? worker.rating.toFixed(1) : 'New'}</span>
+                                        <i class="ph-fill ph-star"></i>
+                                    </div>
+                                    <small class="text-muted">(${worker.totalReviews || 0} Reviews)</small>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-2 mb-4">
+                                <span class="badge bg-${colorClass} bg-opacity-10 text-${colorClass} px-3 py-2 rounded-pill text-capitalize">
+                                    <i class="ph-fill ph-${iconClass} me-1"></i> ${worker.service}
+                                </span>
+                                ${worker.verified ?
+                        `<span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill">
+                                    <i class="ph-fill ph-seal-check me-1"></i> Verified
+                                </span>` : ''}
+                            </div>
+
+                            <hr class="border-secondary border-opacity-10 my-4">
+
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <small class="text-uppercase text-muted fw-bold" style="font-size: 0.7rem;">Starting at</small>
+                                    <div class="fw-bold fs-5">₹${worker.hourlyRate || 0}<span class="fs-6 text-muted fw-normal">/hr</span></div>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-outline-${colorClass} rounded-pill px-3" onclick="alert('Profile view coming soon!')">View Profile</button>
+                                    <button class="btn btn-${colorClass} rounded-pill px-3 text-white book-now-btn" 
+                                        data-worker-id="${worker.id}" 
+                                        data-worker-name="${worker.name}" 
+                                        data-service="${worker.service}" 
+                                        data-hourly-rate="${worker.hourlyRate || 0}">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            }
+
+            function showNoResults() {
+                workerGrid.innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <div class="text-muted"><i class="ph ph-magnifying-glass fs-1 mb-3"></i><p>No professionals found matching your criteria.</p></div>
+                    </div>`;
+            }
+
+            // Event Listeners
+            searchBtn.addEventListener('click', fetchWorkers);
+            searchInput.addEventListener('keyup', debounce((e) => {
+                fetchWorkers();
+            }));
+
+            Object.values(checkboxes).forEach(cb => {
+                if (cb) cb.addEventListener('change', fetchWorkers);
+            });
+
+            // Initial Load
+            fetchWorkers();
+        });
+    </script>
+    <script src="../js/booking.js"></script>
+</body>
+
+</html>
