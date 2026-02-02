@@ -31,24 +31,29 @@
 }
 
 /* Dark Theme Colors */
+/* Dark Theme Colors */
 [data-theme="dark"] {
   --body-bg: #0f172a;
   --body-bg-secondary: #1e293b;
   --body-bg-tertiary: #334155;
   --text-color: #f1f5f9;
-  --text-muted: #94a3b8;
+  --text-muted: #cbd5e1;
+  /* Lighter muted text for better readability */
   --card-bg: #1e293b;
-  --card-border: rgba(255, 255, 255, 0.1);
+  --card-border: rgba(255, 255, 255, 0.15);
+  /* Stronger border */
   --navbar-bg: #1e293b;
-  --input-bg: #1e293b;
+  --input-bg: #0f172a;
+  /* Darker input bg for contrast */
   --input-border: #475569;
   --dropdown-bg: #1e293b;
-  --dropdown-border: rgba(255, 255, 255, 0.1);
+  --dropdown-border: rgba(255, 255, 255, 0.15);
   --footer-bg: #0f172a;
-  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  /* Stronger shadow */
   --hero-gradient: linear-gradient(135deg,
-      rgba(0, 150, 136, 0.08) 0%,
-      rgba(255, 192, 0, 0.05) 100%);
+      rgba(0, 150, 136, 0.15) 0%,
+      rgba(255, 192, 0, 0.1) 100%);
 }
 
 /* ========== Global Overrides ========== */
@@ -289,15 +294,15 @@ h6,
 
 /* Worker Card Icons - Dark Theme */
 [data-theme="dark"] .worker-card .bg-primary.bg-opacity-10 {
-  background-color: rgba(0, 178, 161, 0.25) !important;
+  background-color: rgba(0, 178, 161, 0.3) !important;
 }
 
 [data-theme="dark"] .worker-card .bg-warning.bg-opacity-10 {
-  background-color: rgba(255, 193, 7, 0.25) !important;
+  background-color: rgba(255, 193, 7, 0.3) !important;
 }
 
 [data-theme="dark"] .worker-card .bg-danger.bg-opacity-10 {
-  background-color: rgba(248, 113, 113, 0.25) !important;
+  background-color: rgba(248, 113, 113, 0.3) !important;
 }
 
 [data-theme="dark"] .worker-card i.text-primary {
@@ -785,10 +790,64 @@ section .lead.text-secondary {
   background-color: transparent;
 }
 
-/* Dropdowns */
 [data-theme="dark"] .dropdown-menu {
   background-color: var(--dropdown-bg);
   border-color: var(--dropdown-border);
+}
+
+/* Custom Purple Utilities */
+.text-purple {
+  color: var(--color-purple-600) !important;
+}
+
+[data-theme="dark"] .text-purple {
+  color: var(--color-purple-500) !important;
+}
+
+.bg-purple {
+  background-color: var(--color-purple-600) !important;
+}
+
+.bg-purple.bg-opacity-10 {
+  background-color: rgba(139, 92, 246, 0.1) !important;
+  color: var(--color-purple-600) !important;
+}
+
+[data-theme="dark"] .bg-purple.bg-opacity-10 {
+  background-color: rgba(139, 92, 246, 0.2) !important;
+  color: var(--color-purple-500) !important;
+}
+
+.btn-purple {
+  background-color: var(--color-purple-600);
+  border-color: var(--color-purple-600);
+  color: #fff;
+}
+
+.btn-purple:hover {
+  background-color: var(--color-purple-500);
+  border-color: var(--color-purple-500);
+  color: #fff;
+}
+
+.btn-outline-purple {
+  color: var(--color-purple-600);
+  border-color: var(--color-purple-600);
+}
+
+.btn-outline-purple:hover {
+  background-color: var(--color-purple-600);
+  color: #fff;
+}
+
+[data-theme="dark"] .btn-outline-purple {
+  color: var(--color-purple-500);
+  border-color: var(--color-purple-500);
+}
+
+[data-theme="dark"] .btn-outline-purple:hover {
+  background-color: var(--color-purple-500);
+  color: #fff;
 }
 
 /* ========== Custom Backgrounds for Visibility ========== */
@@ -798,7 +857,7 @@ section .lead.text-secondary {
 }
 
 [data-theme="dark"] .bg-item-subtle {
-  background-color: var(--color-neutral-800) !important;
+  background-color: var(--color-neutral-900) !important;
 }
 
 
@@ -1188,6 +1247,10 @@ section .lead.text-secondary {
 }
 
 /* Hero Section Text - Dark Theme */
+[data-theme="dark"] .hero-section {
+  background-color: var(--color-neutral-800) !important;
+}
+
 [data-theme="dark"] .hero-section h1 {
   color: #f1f5f9 !important;
 }
@@ -1409,7 +1472,16 @@ section .lead.text-secondary {
 }
 
 [data-theme="dark"] .bg-primary .opacity-90 {
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: rgba(255, 255, 255, 1) !important;
+}
+
+/* Card Improvements for Dark Mode */
+[data-theme="dark"] .card {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .card:hover {
+  border-color: rgba(0, 150, 136, 0.5) !important;
 }
 
 /* All section headers - non-primary backgrounds */
