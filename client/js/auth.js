@@ -3,16 +3,25 @@
    SkillVerify Portal
 ======================================== */
 
-// API Base URL - change this in production
-const API_BASE_URL = "http://localhost:3000/api";
+// auth.js - Uses global CONFIG from config.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Redirect if already logged in
-  if (isLoggedIn()) {
+  // Redirect if already logged in, BUT only if on auth pages
+  const path = window.location.pathname;
+  const isAuthPage = path.includes('login.html') || path.includes('register.html');
+
+  if (isAuthPage && Auth.isLoggedIn()) {
     window.location.href = "../index.html";
     return;
   }
-  initAuth();
+
+  // Initialize common UI components
+  if (isAuthPage) {
+    initAuth();
+  } else {
+    // Just init theme logic if reused elsewhere
+    initThemeToggle();
+  }
 });
 
 function initAuth() {
@@ -324,7 +333,7 @@ async function checkEmailAndPhoneAvailability() {
 
   try {
     // Check email
-    const emailResponse = await fetch(`${API_BASE_URL}/auth/check-email`, {
+    const emailResponse = await fetch(`${CONFIG.API_BASE_URL}/auth/check-email`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),
@@ -345,7 +354,7 @@ async function checkEmailAndPhoneAvailability() {
     }
 
     // Check phone
-    const phoneResponse = await fetch(`${API_BASE_URL}/auth/check-phone`, {
+    const phoneResponse = await fetch(`${CONFIG.API_BASE_URL}/auth/check-phone`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ phone }),
@@ -557,7 +566,7 @@ async function handleLogin(e) {
   loginBtn.disabled = true;
 
   try {
-    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+    const response = await fetch(`${CONFIG.API_BASE_URL}/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -570,11 +579,18 @@ async function handleLogin(e) {
     if (data.success) {
       localStorage.setItem("token", data.data.token);
       localStorage.setItem("user", JSON.stringify(data.data.user));
+      const userRole = data.data.user.role;
+      localStorage.setItem("userRole", userRole);
 
       showToast("Login successful!", "success");
 
       setTimeout(() => {
-        window.location.href = "../index.html";
+        if (userRole === 'WORKER') {
+          window.location.href = "worker-dashboard.html";
+        } else {
+          // Redirect customers to home page so they can book services
+          window.location.href = "../index.html";
+        }
       }, 1000);
     } else {
       showToast(data.message || "Login failed", "danger");
@@ -641,7 +657,7 @@ async function handleRegister(e) {
   submitBtn.disabled = true;
 
   try {
-    const response = await fetch(`${API_BASE_URL}/auth/register`, {
+    const response = await fetch(`${CONFIG.API_BASE_URL}/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -655,10 +671,16 @@ async function handleRegister(e) {
       localStorage.setItem("token", data.data.token);
       localStorage.setItem("user", JSON.stringify(data.data.user));
 
+      localStorage.setItem("userRole", data.data.user.role);
+
       showToast("Account created successfully!", "success");
 
       setTimeout(() => {
-        window.location.href = "../index.html";
+        if (data.data.user.role === 'WORKER') {
+          window.location.href = "worker-dashboard.html";
+        } else {
+          window.location.href = "../index.html";
+        }
       }, 1000);
     } else {
       // Handle validation errors

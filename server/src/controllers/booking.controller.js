@@ -42,3 +42,21 @@ export const getBookingById = async (req, res, next) => {
         next(error);
     }
 };
+
+export const updateBookingStatus = async (req, res, next) => {
+    try {
+        const booking = await bookingService.updateBookingStatus(
+            req.user.id,
+            req.params.id,
+            req.body.status,
+            req.user.role
+        );
+        res.json({
+            success: true,
+            message: 'Booking status updated successfully',
+            data: booking,
+        });
+    } catch (error) {
+        next(error);
+    }
+};

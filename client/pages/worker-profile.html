@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Profile - SkillVerify</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
+                <div class="logo-icon bg-primary text-white rounded-3 d-flex align-items-center justify-content-center"
+                    style="width: 44px; height: 44px">
+                    <i class="ph-fill ph-shield-check fs-4"></i>
+                </div>
+                <div class="d-flex flex-column">
+                    <span class="fw-bold fs-5">Skill<span class="text-primary">Verify</span></span>
+                    <small class="text-muted" style="font-size: 0.7rem">Verified Professionals</small>
+                </div>
+            </a>
+            <div class="d-flex align-items-center gap-3">
+                <a href="customer-dashboard.html" class="btn btn-outline-primary rounded-pill btn-sm">
+                    <i class="ph ph-arrow-left me-1"></i> Back to Dashboard
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5 mt-5">
+        <div class="row g-4" id="profileContent">
+            <!-- Loading State -->
+            <div class="col-12 text-center py-5">
+                <div class="spinner-border text-primary" role="status"></div>
+                <p class="mt-2 text-muted">Loading profile...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/booking.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const workerId = urlParams.get('id');
+
+            if (!workerId) {
+                window.location.href = 'find-workers.html';
+                return;
+            }
+
+            try {
+                const response = await fetch(`${CONFIG.API_BASE_URL}/workers/${workerId}`);
+                const data = await response.json();
+
+                if (data.success) {
+                    renderProfile(data.data);
+                } else {
+                    document.getElementById('profileContent').innerHTML = `<div class="col-12 text-center text-danger">Worker not found</div>`;
+                }
+            } catch (error) {
+                console.error('Error fetching worker:', error);
+                document.getElementById('profileContent').innerHTML = `<div class="col-12 text-center text-danger">Error loading profile</div>`;
+            }
+        });
+
+        function renderProfile(worker) {
+            const container = document.getElementById('profileContent');
+
+            container.innerHTML = `
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm rounded-4 text-center p-4">
+                         <div class="position-relative d-inline-block mb-3">
+                            <img src="${worker.profilePicture || 'https://ui-avatars.com/api/?name=' + worker.name}" 
+                                 class="rounded-circle shadow-lg object-fit-cover" 
+                                 width="150" height="150">
+                             ${worker.verified ? '<div class="position-absolute bottom-0 end-0 bg-success border border-4 border-white rounded-circle p-2" title="Verified"></div>' : ''}
+                        </div>
+                        <h3 class="fw-bold mb-1">${worker.name}</h3>
+                        <p class="text-primary fw-semibold mb-3">${worker.skills[0]}</p>
+                        
+                        <div class="d-flex justify-content-center gap-3 mb-4">
+                            <div class="text-center px-3 border-end">
+                                <h5 class="fw-bold mb-0">${worker.rating.toFixed(1)}</h5>
+                                <small class="text-muted">Rating</small>
+                            </div>
+                            <div class="text-center px-3 border-end">
+                                <h5 class="fw-bold mb-0">${worker.totalReviews}</h5>
+                                <small class="text-muted">Reviews</small>
+                            </div>
+                            <div class="text-center px-3">
+                                <h5 class="fw-bold mb-0">${worker.experience}</h5>
+                                <small class="text-muted">Exp (Yrs)</small>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-lg w-100 rounded-pill book-now-btn"
+                            data-worker-id="${worker.id}"
+                            data-worker-name="${worker.name}"
+                            data-service="${worker.skills[0]}"
+                            data-hourly-rate="${worker.hourlyRate || 0}">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
+                        <h5 class="fw-bold mb-3"><i class="ph ph-user-list me-2"></i>About</h5>
+                        <p class="text-secondary">${worker.bio || 'No bio available.'}</p>
+                        
+                        <div class="mt-4">
+                            <h6 class="fw-bold mb-3">Skills</h6>
+                            <div class="d-flex flex-wrap gap-2">
+                                ${worker.skills.map(skill => `<span class="badge bg-light text-dark border px-3 py-2 rounded-pill">${skill}</span>`).join('')}
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                             <h6 class="fw-bold mb-3">Location</h6>
+                             <div class="d-flex align-items-center gap-2 text-secondary">
+                                <i class="ph-fill ph-map-pin text-primary"></i> ${worker.city || 'Location not specified'}
+                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Section (Placeholder) -->
+                    <div class="card border-0 shadow-sm rounded-4 p-4">
+                        <h5 class="fw-bold mb-3"><i class="ph ph-star me-2"></i>Reviews</h5>
+                        <div class="text-center py-4 text-muted bg-light rounded-3">
+                            <i class="ph ph-chat-centered-text fs-1 mb-2"></i>
+                            <p class="mb-0">No reviews yet.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+
+</html>

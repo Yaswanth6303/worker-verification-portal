@@ -51,9 +51,7 @@
   --footer-bg: #0f172a;
   --shadow-color: rgba(0, 0, 0, 0.5);
   /* Stronger shadow */
-  --hero-gradient: linear-gradient(135deg,
-      rgba(0, 150, 136, 0.15) 0%,
-      rgba(255, 192, 0, 0.1) 100%);
+  --hero-gradient: none;
 }
 
 /* ========== Global Overrides ========== */
@@ -396,6 +394,10 @@ section .lead.text-secondary {
   bottom: 0;
   left: -100px;
   animation: float 30s ease-in-out infinite reverse;
+}
+
+[data-theme="dark"] .hero-shape {
+  display: none !important;
 }
 
 .hero-shape.shape-3 {

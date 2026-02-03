@@ -7,6 +7,7 @@ export const createBookingSchema = z.object({
     scheduledDate: z.string({ required_error: 'Scheduled date is required' }),
     scheduledTime: z.string({ required_error: 'Scheduled time is required' }),
     address: z.string({ required_error: 'Address is required' }),
+    amount: z.number().optional(),
 });
 
 export const updateBookingStatusSchema = z.object({

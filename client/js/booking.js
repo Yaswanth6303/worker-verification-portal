@@ -1,25 +1,44 @@
-const API_BASE_URL = 'http://localhost:3000/api';
+// booking.js - Uses global CONFIG and Auth from config.js
 
 document.addEventListener('DOMContentLoaded', () => {
     injectBookingModal();
 
     // Use event delegation for dynamic content
+
     document.body.addEventListener('click', (e) => {
-        if (e.target.closest('.book-now-btn')) {
-            const btn = e.target.closest('.book-now-btn');
+        const btn = e.target.closest('.book-now-btn');
+        if (btn) {
+            e.preventDefault(); // CRITICAL: Stop default link/button behavior
+            console.log('Book Now Clicked');
+
             const workerId = btn.dataset.workerId;
             const workerName = btn.dataset.workerName;
-            const service = btn.dataset.service; // Assuming we add this
-            const hourlyRate = btn.dataset.hourlyRate;
+            const service = btn.dataset.service;
+            console.log('Worker Details:', { workerId, workerName, service });
 
-            if (!isLoggedIn()) {
-                window.location.href = 'login.html';
+            if (!workerId || !service) {
+                alert('Error: Missing worker details.');
                 return;
             }
 
-            openBookingModal(workerId, workerName, service, hourlyRate);
+            if (!Auth.isLoggedIn()) {
+                console.log('User not logged in');
+                alert('Please login to continue.');
+                const isPagesDir = window.location.pathname.includes('/pages/');
+                window.location.href = isPagesDir ? 'login.html' : 'pages/login.html';
+                return;
+            }
+
+            // Redirect to booking page
+            const isPagesDir = window.location.pathname.includes('/pages/');
+            const targetPage = isPagesDir ? 'book-service.html' : 'pages/book-service.html';
+            const targetUrl = `${targetPage}?workerId=${workerId}&service=${encodeURIComponent(service)}&workerName=${encodeURIComponent(workerName)}`;
+
+            console.log('Redirecting to:', targetUrl);
+            window.location.href = targetUrl;
         }
     });
+
 
     const bookingForm = document.getElementById('bookingForm');
     if (bookingForm) {
@@ -123,11 +142,11 @@ async function handleBookingSubmit(e) {
             address: document.getElementById('bookingAddress').value
         };
 
-        const response = await fetch(`${API_BASE_URL}/bookings`, {
+        const response = await fetch(`${CONFIG.API_BASE_URL}/bookings`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                ...getAuthHeader()
+                ...Auth.getAuthHeader()
             },
             body: JSON.stringify(formData)
         });
@@ -139,8 +158,10 @@ async function handleBookingSubmit(e) {
             const modal = bootstrap.Modal.getInstance(modalEl);
             modal.hide();
 
-            showToast('Booking request sent successfully!', 'success');
-            e.target.reset();
+            showToast('Booking successful! Redirecting to dashboard...', 'success');
+            setTimeout(() => {
+                window.location.href = 'customer-dashboard.html';
+            }, 1000);
         } else {
             showToast(data.message || 'Booking failed', 'danger');
         }
@@ -153,19 +174,8 @@ async function handleBookingSubmit(e) {
     }
 }
 
-// Reuse auth helpers if available globally, or redefine
-function isLoggedIn() {
-    return !!localStorage.getItem('token');
-}
-
 function getCurrentUser() {
-    const userStr = localStorage.getItem('user');
-    return userStr ? JSON.parse(userStr) : null;
-}
-
-function getAuthHeader() {
-    const token = localStorage.getItem('token');
-    return token ? { 'Authorization': `Bearer ${token}` } : {};
+    return Auth.getUser();
 }
 
 // Toast helper (reused from auth.js if loaded, or simple fallback)

@@ -4,14 +4,19 @@ class WorkerRepository {
     async findAll({ service, search }) {
         const where = {
             isAvailable: true,
-            verificationStatus: 'VERIFIED',
+            // verificationStatus: 'VERIFIED', // Commented out for testing/demo purposes
         };
 
-        if (service) {
-            where.skills = {
-                has: service.toLowerCase(),
-            };
-        }
+        const services = Array.isArray(service) ? service : [service];
+        // Search for both capitalized and lowercase versions to be robust
+        const terms = services.flatMap(s => [
+            s.toLowerCase(),
+            s.charAt(0).toUpperCase() + s.slice(1).toLowerCase()
+        ]);
+
+        where.skills = {
+            hasSome: terms
+        };
 
         if (search) {
             where.user = {
