@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Dashboard - SkillVerify</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
+                <div class="logo-icon bg-primary text-white rounded-3 d-flex align-items-center justify-content-center"
+                    style="width: 44px; height: 44px">
+                    <i class="ph-fill ph-shield-check fs-4"></i>
+                </div>
+                <div class="d-flex flex-column">
+                    <span class="fw-bold fs-5">Skill<span class="text-primary">Verify</span></span>
+                    <small class="text-muted" style="font-size: 0.7rem">Worker Dashboard</small>
+                </div>
+            </a>
+            <div class="d-flex align-items-center gap-3">
+                <span class="text-secondary d-none d-md-block" id="userName">Loading...</span>
+                <button class="btn btn-outline-danger btn-sm" onclick="logout()">
+                    <i class="ph ph-sign-out me-1"></i> Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5 mt-5">
+        <!-- Stats Row -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+                    <div class="card-body p-4 d-flex align-items-center gap-3">
+                        <div class="bg-success bg-opacity-10 text-success p-3 rounded-circle">
+                            <i class="ph-fill ph-currency-inr fs-3"></i>
+                        </div>
+                        <div>
+                            <h6 class="text-muted mb-1">Total Earnings</h6>
+                            <h3 class="fw-bold mb-0" id="totalEarnings">₹0</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+                    <div class="card-body p-4 d-flex align-items-center gap-3">
+                        <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-circle">
+                            <i class="ph-fill ph-briefcase fs-3"></i>
+                        </div>
+                        <div>
+                            <h6 class="text-muted mb-1">Jobs Completed</h6>
+                            <h3 class="fw-bold mb-0" id="totalJobs">0</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+                    <div class="card-body p-4 d-flex align-items-center gap-3">
+                        <div class="bg-warning bg-opacity-10 text-warning p-3 rounded-circle">
+                            <i class="ph-fill ph-star fs-3"></i>
+                        </div>
+                        <div>
+                            <h6 class="text-muted mb-1">Average Rating</h6>
+                            <h3 class="fw-bold mb-0" id="avgRating">0.0</h3>
+                            <small class="text-muted" id="totalReviews">(0 Reviews)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="fw-bold mb-4">My Bookings</h4>
+
+        <!-- Bookings Tabs -->
+        <ul class="nav nav-pills mb-4" id="bookingTabs">
+            <li class="nav-item">
+                <a class="nav-link active rounded-pill px-4" data-bs-toggle="pill" href="#upcoming">Upcoming</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link rounded-pill px-4" data-bs-toggle="pill" href="#completed">Past Jobs</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="upcoming">
+                <div id="upcomingList" class="d-flex flex-column gap-3">
+                    <!-- Dynamic Content -->
+                    <div class="text-center py-5 text-muted">
+                        <div class="spinner-border text-primary" role="status"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="completed">
+                <div id="completedList" class="d-flex flex-column gap-3">
+                    <!-- Dynamic Content -->
+                    <div class="text-center py-5 text-muted">
+                        <div class="spinner-border text-primary" role="status"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+
+</html>

@@ -183,9 +183,8 @@ function initScrollAnimations() {
   animatedElements.forEach((el, index) => {
     el.style.opacity = "0";
     el.style.transform = "translateY(20px)";
-    el.style.transition = `opacity 0.5s ease ${
-      index * 0.1
-    }s, transform 0.5s ease ${index * 0.1}s`;
+    el.style.transition = `opacity 0.5s ease ${index * 0.1
+      }s, transform 0.5s ease ${index * 0.1}s`;
     observer.observe(el);
   });
 }
@@ -196,6 +195,9 @@ function initSmoothScroll() {
 
   links.forEach((link) => {
     link.addEventListener("click", (e) => {
+      // Ignore dropdown toggles
+      if (link.getAttribute("data-bs-toggle") === "dropdown") return;
+
       const href = link.getAttribute("href");
 
       if (href === "#") return;
@@ -242,6 +244,27 @@ function initAuthState() {
     if (userNav) {
       userNav.classList.remove("d-none");
       updateUserInfo(user);
+
+      // Hide Join Worker button for all logged-in users
+      const joinWorkerBtn = document.getElementById("heroJoinWorkerBtn");
+      if (joinWorkerBtn) {
+        joinWorkerBtn.style.display = 'none';
+      }
+
+      // Update Dashboard Link
+      const dashboardLink = document.getElementById("dashboardLink");
+      if (dashboardLink) {
+        const role = localStorage.getItem("userRole");
+        // Determine path prefix (handle if we are in /pages/ or root)
+        const isPagesDir = window.location.pathname.includes('/pages/');
+        const prefix = isPagesDir ? '' : 'pages/';
+
+        if (role === 'WORKER') {
+          dashboardLink.href = `${prefix}worker-dashboard.html`;
+        } else {
+          dashboardLink.href = `${prefix}customer-dashboard.html`;
+        }
+      }
     }
 
     // Setup logout button
@@ -249,7 +272,7 @@ function initAuthState() {
     if (logoutBtn) {
       logoutBtn.addEventListener("click", (e) => {
         e.preventDefault();
-        handleLogout();
+        Auth.logout();
       });
     }
 
