@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings - SkillVerify</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/custom.css" />
+    <script>
+      (function () {
+        var t = localStorage.getItem("theme");
+        if (!t && window.matchMedia("(prefers-color-scheme: dark)").matches)
+          t = "dark";
+        if (t === "dark")
+          document.documentElement.setAttribute("data-theme", "dark");
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow-sm"
+      id="mainNavbar"
+    >
+      <div class="container">
+        <a
+          class="navbar-brand d-flex align-items-center gap-2"
+          href="../index.html"
+        >
+          <div
+            class="logo-icon bg-primary text-white rounded-3 d-flex align-items-center justify-content-center"
+            style="width: 44px; height: 44px"
+          >
+            <i class="ph-fill ph-shield-check fs-4"></i>
+          </div>
+          <div class="d-flex flex-column">
+            <span class="fw-bold fs-5"
+              >Skill<span class="text-primary">Verify</span></span
+            >
+            <small
+              class="text-muted d-none d-md-block"
+              style="font-size: 0.7rem"
+              >Trusted Workers, Verified Skills</small
+            >
+          </div>
+        </a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link d-flex align-items-center gap-1"
+                href="../index.html"
+                ><i class="ph ph-house"></i> Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link d-flex align-items-center gap-1"
+                href="find-workers.html"
+                ><i class="ph ph-magnifying-glass"></i> Find Workers</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link d-flex align-items-center gap-1"
+                href="my-bookings.html"
+                ><i class="ph ph-calendar-check"></i> My Bookings</a
+              >
+            </li>
+          </ul>
+          <div class="d-flex gap-2 align-items-center">
+            <button
+              class="btn btn-outline-secondary theme-toggle rounded-pill px-3"
+              id="themeToggle"
+              title="Toggle theme"
+              type="button"
+            >
+              <i class="ph ph-moon" id="themeIcon"></i>
+            </button>
+            <div id="guestNav" class="d-flex gap-2">
+              <a
+                href="login.html"
+                class="btn btn-outline-primary rounded-pill px-3"
+                ><i class="ph ph-sign-in me-1"></i> Login</a
+              >
+              <a href="register.html" class="btn btn-primary rounded-pill px-3"
+                ><i class="ph ph-user-plus me-1"></i> Register</a
+              >
+            </div>
+            <div id="userNav" class="d-none">
+              <div class="dropdown">
+                <button
+                  class="btn btn-light rounded-pill d-flex align-items-center gap-2 px-3"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                >
+                  <div
+                    class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                    style="width: 32px; height: 32px"
+                    id="userAvatar"
+                  >
+                    <i class="ph-fill ph-user"></i>
+                  </div>
+                  <span class="d-none d-md-inline" id="userName">User</span>
+                  <i class="ph ph-caret-down"></i>
+                </button>
+                <ul
+                  class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2"
+                >
+                  <li>
+                    <a class="dropdown-item py-2" href="profile.html"
+                      ><i class="ph ph-user-circle me-2 text-primary"></i> My
+                      Profile</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item py-2" href="my-bookings.html"
+                      ><i class="ph ph-calendar-check me-2 text-success"></i> My
+                      Bookings</a
+                    >
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a
+                      class="dropdown-item py-2 text-danger"
+                      href="#"
+                      id="logoutBtn"
+                      ><i class="ph ph-sign-out me-2"></i> Logout</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="position-relative overflow-hidden bg-light"
+        style="padding-top: 100px; padding-bottom: 2rem"
+      >
+        <div class="container position-relative py-4">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-4">
+              <li class="breadcrumb-item">
+                <a href="../index.html" class="text-decoration-none">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Settings
+              </li>
+            </ol>
+          </nav>
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <div
+                class="d-inline-flex align-items-center justify-content-center rounded-4 mb-4 bg-primary bg-opacity-10"
+                style="width: 72px; height: 72px"
+              >
+                <i class="ph-fill ph-gear fs-1 text-primary"></i>
+              </div>
+              <h1 class="display-5 fw-bold mb-3">Settings</h1>
+              <p class="lead text-secondary mb-0">
+                Manage your account settings and preferences.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Settings Content -->
+      <section class="py-5">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-8 mx-auto">
+              <!-- Notifications -->
+              <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-transparent border-0 p-4">
+                  <h5 class="fw-bold mb-0">
+                    <i class="ph ph-bell me-2 text-primary"></i>Notifications
+                  </h5>
+                </div>
+                <div class="card-body p-4 pt-0">
+                  <div class="form-check form-switch mb-3">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="emailNotif"
+                      checked
+                    />
+                    <label class="form-check-label" for="emailNotif"
+                      >Email notifications for new bookings</label
+                    >
+                  </div>
+                  <div class="form-check form-switch mb-3">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="smsNotif"
+                      checked
+                    />
+                    <label class="form-check-label" for="smsNotif"
+                      >SMS notifications for booking updates</label
+                    >
+                  </div>
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="promoNotif"
+                    />
+                    <label class="form-check-label" for="promoNotif"
+                      >Promotional and marketing emails</label
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Security -->
+              <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-transparent border-0 p-4">
+                  <h5 class="fw-bold mb-0">
+                    <i class="ph ph-lock me-2 text-warning"></i>Security
+                  </h5>
+                </div>
+                <div class="card-body p-4 pt-0">
+                  <form id="passwordForm">
+                    <div class="row g-3">
+                      <div class="col-md-12">
+                        <label class="form-label small text-muted"
+                          >Current Password</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="currentPassword"
+                          placeholder="Enter current password"
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label small text-muted"
+                          >New Password</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="newPassword"
+                          placeholder="Enter new password"
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label small text-muted"
+                          >Confirm New Password</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="confirmPassword"
+                          placeholder="Confirm new password"
+                        />
+                      </div>
+                      <div class="col-12">
+                        <button
+                          type="submit"
+                          class="btn btn-warning rounded-pill px-4"
+                        >
+                          <i class="ph ph-key me-2"></i>Change Password
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Danger Zone -->
+              <div class="card border-0 shadow-sm rounded-4 border-danger">
+                <div class="card-header bg-transparent border-0 p-4">
+                  <h5 class="fw-bold mb-0 text-danger">
+                    <i class="ph ph-warning me-2"></i>Danger Zone
+                  </h5>
+                </div>
+                <div class="card-body p-4 pt-0">
+                  <p class="text-muted mb-3">
+                    Once you delete your account, there is no going back. Please
+                    be certain.
+                  </p>
+                  <button class="btn btn-outline-danger rounded-pill px-4">
+                    <i class="ph ph-trash me-2"></i>Delete Account
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+      <div class="container">
+        <div class="row g-4 mb-4">
+          <div class="col-lg-4">
+            <a
+              class="d-flex align-items-center gap-2 text-decoration-none mb-3"
+              href="../index.html"
+            >
+              <div
+                class="bg-white bg-opacity-10 rounded-3 d-flex align-items-center justify-content-center"
+                style="width: 44px; height: 44px"
+              >
+                <i class="ph-fill ph-shield-check fs-4 text-white"></i>
+              </div>
+              <span class="fw-bold fs-5 text-white"
+                >Skill<span class="text-primary">Verify</span></span
+              >
+            </a>
+            <p class="text-white-50">
+              India's trusted platform for verified local skilled workers.
+            </p>
+          </div>
+        </div>
+        <hr class="border-secondary" />
+        <p class="text-white-50 mb-0">
+          &copy; 2025 SkillVerify. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const token = localStorage.getItem("token");
+        const user = localStorage.getItem("user");
+
+        if (token && user) {
+          const userData = JSON.parse(user);
+          document.getElementById("guestNav")?.classList.add("d-none");
+          document.getElementById("userNav")?.classList.remove("d-none");
+          document.getElementById("userName").textContent =
+            userData.fullName?.split(" ")[0] || "User";
+        } else {
+          window.location.href = "login.html";
+        }
+
+        // Logout
+        document.getElementById("logoutBtn")?.addEventListener("click", (e) => {
+          e.preventDefault();
+          localStorage.removeItem("token");
+          localStorage.removeItem("user");
+          window.location.href = "login.html";
+        });
+
+        // Password form
+        document
+          .getElementById("passwordForm")
+          ?.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const newPass = document.getElementById("newPassword").value;
+            const confirmPass =
+              document.getElementById("confirmPassword").value;
+            if (newPass !== confirmPass) {
+              alert("Passwords do not match!");
+              return;
+            }
+            alert("Password change feature coming soon!");
+          });
+      });
+    </script>
+  </body>
+</html>

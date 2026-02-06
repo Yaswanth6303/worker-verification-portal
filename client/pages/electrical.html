@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electrical - SkillVerify</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/custom.css" />
+    <script>
+      (function () {
+        var t = localStorage.getItem("theme");
+        if (!t && window.matchMedia("(prefers-color-scheme: dark)").matches)
+          t = "dark";
+        if (t === "dark")
+          document.documentElement.setAttribute("data-theme", "dark");
+      })();
+    </script>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow-sm"
+      id="mainNavbar"
+    >
+      <div class="container">
+        <a
+          class="navbar-brand d-flex align-items-center gap-2"
+          href="../index.html"
+        >
+          <div
+            class="logo-icon bg-primary text-white rounded-3 d-flex align-items-center justify-content-center"
+            style="width: 44px; height: 44px"
+          >
+            <i class="ph-fill ph-shield-check fs-4"></i>
+          </div>
+          <div class="d-flex flex-column">
+            <span class="fw-bold fs-5"
+              >Skill<span class="text-primary">Verify</span></span
+            >
+            <small
+              class="text-muted d-none d-md-block"
+              style="font-size: 0.7rem"
+              >Trusted Workers, Verified Skills</small
+            >
+          </div>
+        </a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link d-flex align-items-center gap-1"
+                href="../index.html"
+                ><i class="ph ph-house"></i> Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link d-flex align-items-center gap-1"
+                href="find-workers.html"
+                ><i class="ph ph-magnifying-glass"></i> Find Workers</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle d-flex align-items-center gap-1"
+                href="#"
+                data-bs-toggle="dropdown"
+              >
+                <i class="ph ph-toolbox"></i> Services
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3"
+              >
+                <li>
+                  <a class="dropdown-item py-2" href="plumbing.html"
+                    ><i class="ph ph-wrench me-2 text-primary"></i> Plumbing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item py-2 active" href="electrical.html"
+                    ><i class="ph ph-lightning me-2 text-warning"></i>
+                    Electrical</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item py-2" href="painting.html"
+                    ><i class="ph ph-paint-brush me-2 text-danger"></i>
+                    Painting</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item py-2" href="carpentry.html"
+                    ><i class="ph ph-hammer me-2 text-info"></i> Carpentry</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item py-2" href="hvac.html"
+                    ><i class="ph ph-fan me-2 text-primary"></i> HVAC</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item py-2" href="cleaning.html"
+                    ><i class="ph ph-broom me-2 text-success"></i> Cleaning</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item py-2" href="services.html"
+                    ><i class="ph ph-squares-four me-2"></i> All Services</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link d-flex align-items-center gap-1"
+                href="../index.html#how-it-works"
+                ><i class="ph ph-certificate"></i> How It Works</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link d-flex align-items-center gap-1"
+                href="../index.html#why-us"
+                ><i class="ph ph-info"></i> About</a
+              >
+            </li>
+          </ul>
+          <div class="d-flex gap-2 align-items-center">
+            <button
+              class="btn btn-outline-secondary theme-toggle rounded-pill px-3"
+              id="themeToggle"
+              title="Toggle theme"
+              type="button"
+            >
+              <i class="ph ph-moon" id="themeIcon"></i>
+            </button>
+            <a
+              href="login.html"
+              class="btn btn-outline-primary rounded-pill px-3"
+              ><i class="ph ph-sign-in me-1"></i> Login</a
+            >
+            <a href="register.html" class="btn btn-primary rounded-pill px-3"
+              ><i class="ph ph-user-plus me-1"></i> Register</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section
+        class="position-relative overflow-hidden bg-light"
+        style="padding-top: 100px; padding-bottom: 4rem"
+      >
+        <div class="container position-relative py-5">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-4">
+              <li class="breadcrumb-item">
+                <a href="../index.html" class="text-decoration-none">Home</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="services.html" class="text-decoration-none"
+                  >Services</a
+                >
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Electrical
+              </li>
+            </ol>
+          </nav>
+          <div class="row align-items-center">
+            <div class="col-lg-7">
+              <div
+                class="d-inline-flex align-items-center justify-content-center rounded-4 mb-4 bg-warning bg-opacity-10"
+                style="width: 72px; height: 72px"
+              >
+                <i class="ph-fill ph-lightning fs-1 text-warning"></i>
+              </div>
+              <h1 class="display-5 fw-bold mb-3">Electrical</h1>
+              <p class="lead text-secondary mb-4">
+                Licensed electricians for wiring, repairs, installations &
+                safety inspections. All our electricians are background-checked
+                and skill-verified.
+              </p>
+              <div class="d-flex flex-wrap gap-4 mb-4">
+                <div>
+                  <span class="d-block fs-4 fw-bold text-primary">720+</span>
+                  <small class="text-muted">Verified Workers</small>
+                </div>
+                <div>
+                  <span class="d-block fs-4 fw-bold"
+                    ><i class="ph-fill ph-star text-warning me-1"></i>4.9</span
+                  >
+                  <small class="text-muted">Avg Rating</small>
+                </div>
+              </div>
+              <a
+                href="find-workers.html?skill=electrical"
+                class="btn btn-primary rounded-pill px-4 py-3"
+              >
+                <i class="ph ph-magnifying-glass me-2"></i> Find Electricians
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-5">
+        <div class="container py-4">
+          <h2 class="h3 fw-bold mb-4">What we offer</h2>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <div class="card h-100 border-0 shadow-sm rounded-4 p-4">
+                <div
+                  class="bg-warning bg-opacity-10 rounded-3 d-inline-flex align-items-center justify-content-center mb-3"
+                  style="width: 48px; height: 48px"
+                >
+                  <i class="ph-fill ph-plug text-warning"></i>
+                </div>
+                <h5 class="fw-bold mb-2">Wiring & Repairs</h5>
+                <p class="text-secondary mb-0 small">
+                  Home wiring, switch/outlet repairs, short-circuit fixes, and
+                  fuse work.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card h-100 border-0 shadow-sm rounded-4 p-4">
+                <div
+                  class="bg-warning bg-opacity-10 rounded-3 d-inline-flex align-items-center justify-content-center mb-3"
+                  style="width: 48px; height: 48px"
+                >
+                  <i class="ph-fill ph-lightning text-warning"></i>
+                </div>
+                <h5 class="fw-bold mb-2">Installations</h5>
+                <p class="text-secondary mb-0 small">
+                  Fans, lights, inverters, solar panels, and DB board upgrades.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card h-100 border-0 shadow-sm rounded-4 p-4">
+                <div
+                  class="bg-warning bg-opacity-10 rounded-3 d-inline-flex align-items-center justify-content-center mb-3"
+                  style="width: 48px; height: 48px"
+                >
+                  <i class="ph-fill ph-clipboard-text text-warning"></i>
+                </div>
+                <h5 class="fw-bold mb-2">Safety Inspections</h5>
+                <p class="text-secondary mb-0 small">
+                  Full electrical audits, compliance checks, and safety
+                  certifications.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-5 bg-light">
+        <div class="container py-4">
+          <h2 class="h3 fw-bold mb-4">Find verified electricians</h2>
+          <p class="text-secondary mb-4">
+            Browse and book licensed electricians with upfront pricing.
+          </p>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <div
+                class="card border-0 shadow-sm rounded-4 overflow-hidden h-100"
+              >
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <div
+                      class="bg-warning bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                      style="width: 56px; height: 56px"
+                    >
+                      <i class="ph-fill ph-user fs-4 text-warning"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <h6 class="fw-bold mb-0">Amit Sharma</h6>
+                      <small class="text-muted"
+                        >Licensed Electrician · 10 yrs</small
+                      >
+                    </div>
+                    <span class="badge bg-warning bg-opacity-10 text-warning"
+                      ><i class="ph-fill ph-star me-1"></i>4.9</span
+                    >
+                  </div>
+                  <p class="small text-secondary mb-3">
+                    Wiring, repairs, inverters, and safety inspections.
+                    Certified.
+                  </p>
+                  <a
+                    href="register.html"
+                    class="btn btn-outline-primary btn-sm rounded-pill"
+                    >View & Book</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div
+                class="card border-0 shadow-sm rounded-4 overflow-hidden h-100"
+              >
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <div
+                      class="bg-warning bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                      style="width: 56px; height: 56px"
+                    >
+                      <i class="ph-fill ph-user fs-4 text-warning"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <h6 class="fw-bold mb-0">Rahul Verma</h6>
+                      <small class="text-muted"
+                        >Senior Electrician · 14 yrs</small
+                      >
+                    </div>
+                    <span class="badge bg-warning bg-opacity-10 text-warning"
+                      ><i class="ph-fill ph-star me-1"></i>4.8</span
+                    >
+                  </div>
+                  <p class="small text-secondary mb-3">
+                    Residential & commercial. Solar and DB installations.
+                  </p>
+                  <a
+                    href="find-workers.html?skill=electrical"
+                    class="btn btn-outline-primary btn-sm rounded-pill"
+                    >View & Book</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div
+                class="card border-0 shadow-sm rounded-4 overflow-hidden h-100"
+              >
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <div
+                      class="bg-warning bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                      style="width: 56px; height: 56px"
+                    >
+                      <i class="ph-fill ph-user fs-4 text-warning"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <h6 class="fw-bold mb-0">Karthik Nair</h6>
+                      <small class="text-muted"
+                        >Master Electrician · 18 yrs</small
+                      >
+                    </div>
+                    <span class="badge bg-warning bg-opacity-10 text-warning"
+                      ><i class="ph-fill ph-star me-1"></i>5.0</span
+                    >
+                  </div>
+                  <p class="small text-secondary mb-3">
+                    Full electrical projects, industrial wiring, audits.
+                  </p>
+                  <a
+                    href="find-workers.html?skill=electrical"
+                    class="btn btn-outline-primary btn-sm rounded-pill"
+                    >View & Book</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <a
+              href="find-workers.html?skill=electrical"
+              class="btn btn-primary rounded-pill px-4"
+              >View all electricians</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="py-4">
+        <div class="container">
+          <h3 class="h5 fw-bold mb-3">Other services</h3>
+          <div class="d-flex flex-wrap gap-2">
+            <a
+              href="plumbing.html"
+              class="btn btn-outline-secondary btn-sm rounded-pill"
+              >Plumbing</a
+            >
+            <a
+              href="painting.html"
+              class="btn btn-outline-secondary btn-sm rounded-pill"
+              >Painting</a
+            >
+            <a
+              href="carpentry.html"
+              class="btn btn-outline-secondary btn-sm rounded-pill"
+              >Carpentry</a
+            >
+            <a
+              href="hvac.html"
+              class="btn btn-outline-secondary btn-sm rounded-pill"
+              >HVAC</a
+            >
+            <a
+              href="cleaning.html"
+              class="btn btn-outline-secondary btn-sm rounded-pill"
+              >Cleaning</a
+            >
+            <a
+              href="services.html"
+              class="btn btn-outline-primary btn-sm rounded-pill"
+              >All Services</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-dark text-white py-5">
+      <div class="container">
+        <div class="row g-4 mb-5">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <a
+              class="d-flex align-items-center gap-2 text-decoration-none mb-3"
+              href="../index.html"
+            >
+              <div
+                class="bg-white bg-opacity-10 rounded-3 d-flex align-items-center justify-content-center"
+                style="width: 44px; height: 44px"
+              >
+                <i class="ph-fill ph-shield-check fs-4 text-white"></i>
+              </div>
+              <div>
+                <span class="fw-bold fs-5 text-white"
+                  >Skill<span class="text-primary">Verify</span></span
+                >
+              </div>
+            </a>
+            <p class="text-white-50 mb-4">
+              India's trusted platform for verified local skilled workers.
+            </p>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <h6 class="fw-bold mb-3">Services</h6>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a
+                  href="plumbing.html"
+                  class="text-white-50 text-decoration-none"
+                  >Plumbing</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="electrical.html"
+                  class="text-white-50 text-decoration-none"
+                  >Electrical</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="painting.html"
+                  class="text-white-50 text-decoration-none"
+                  >Painting</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="carpentry.html"
+                  class="text-white-50 text-decoration-none"
+                  >Carpentry</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="hvac.html" class="text-white-50 text-decoration-none"
+                  >HVAC</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="cleaning.html"
+                  class="text-white-50 text-decoration-none"
+                  >Cleaning</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <h6 class="fw-bold mb-3">Company</h6>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a
+                  href="../index.html#why-us"
+                  class="text-white-50 text-decoration-none"
+                  >About Us</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="../index.html#how-it-works"
+                  class="text-white-50 text-decoration-none"
+                  >How It Works</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="border-secondary" />
+        <p class="text-white-50 mb-0">
+          &copy; 2025 SkillVerify. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/theme.js"></script>
+  </body>
+</html>

@@ -136,7 +136,7 @@ function animateCounter(element, target) {
 
     const easeOutQuart = 1 - Math.pow(1 - progress, 4);
     const currentValue = Math.floor(
-      startValue + (target - startValue) * easeOutQuart
+      startValue + (target - startValue) * easeOutQuart,
     );
 
     element.textContent = formatNumber(currentValue);
@@ -159,7 +159,7 @@ function formatNumber(num) {
 /* ========== Scroll Animations ========== */
 function initScrollAnimations() {
   const animatedElements = document.querySelectorAll(
-    ".service-card, .step-card, .card"
+    ".service-card, .step-card, .card",
   );
 
   if (animatedElements.length === 0) return;
@@ -237,6 +237,19 @@ function initAuthState() {
   const userNav = document.getElementById("userNav");
 
   if (token && user) {
+    // If user is a worker, redirect to worker dashboard
+    if (user.role === "WORKER") {
+      // Check if we're on the index page (not already in pages/)
+      const currentPath = window.location.pathname;
+      if (
+        !currentPath.includes("/pages/") &&
+        !currentPath.includes("worker-dashboard")
+      ) {
+        window.location.href = "pages/worker-dashboard.html";
+        return;
+      }
+    }
+
     // Show logged-in view
     if (guestNav) guestNav.classList.add("d-none");
     if (userNav) {

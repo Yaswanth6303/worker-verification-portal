@@ -17,6 +17,7 @@ class AuthService {
       skills,
       experience,
       bio,
+      hourlyRate,
     } = userData;
 
     // Check if email already exists
@@ -61,6 +62,7 @@ class AuthService {
         skills: skills,
         experience: experience || '0-1',
         bio: bio || '',
+        hourlyRate: hourlyRate || null,
       });
     }
 
@@ -173,8 +175,17 @@ class AuthService {
   }
 
   async updateProfile(userId, updateData) {
-    const { fullName, address, city, pincode, profilePicture, skills, experience, bio } =
-      updateData;
+    const {
+      fullName,
+      address,
+      city,
+      pincode,
+      profilePicture,
+      skills,
+      experience,
+      bio,
+      isAvailable,
+    } = updateData;
 
     // Prepare update data for user
     const userUpdateData = {};
@@ -190,12 +201,16 @@ class AuthService {
     // Update worker profile if provided and user is a worker
     if (
       user.role === 'WORKER' &&
-      (skills !== undefined || experience !== undefined || bio !== undefined)
+      (skills !== undefined ||
+        experience !== undefined ||
+        bio !== undefined ||
+        isAvailable !== undefined)
     ) {
       const workerUpdateData = {};
       if (skills !== undefined) workerUpdateData.skills = skills;
       if (experience !== undefined) workerUpdateData.experience = experience;
       if (bio !== undefined) workerUpdateData.bio = bio;
+      if (isAvailable !== undefined) workerUpdateData.isAvailable = isAvailable;
 
       await authRepository.updateWorkerProfile(userId, workerUpdateData);
 

@@ -339,7 +339,7 @@ async function checkEmailAndPhoneAvailability() {
         emailError.textContent = "This email is already registered";
       showToast(
         "Email already registered. Please use a different email or login.",
-        "danger"
+        "danger",
       );
       return false;
     }
@@ -360,7 +360,7 @@ async function checkEmailAndPhoneAvailability() {
         phoneError.textContent = "This phone number is already registered";
       showToast(
         "Phone number already registered. Please use a different number.",
-        "danger"
+        "danger",
       );
       return false;
     }
@@ -434,7 +434,7 @@ function validateStep(step) {
   if (!currentStepEl) return true;
 
   const inputs = currentStepEl.querySelectorAll(
-    "input[required]:not(.d-none), textarea[required]:not(.d-none), select[required]:not(.d-none)"
+    "input[required]:not(.d-none), textarea[required]:not(.d-none), select[required]:not(.d-none)",
   );
   let isValid = true;
 
@@ -574,7 +574,14 @@ async function handleLogin(e) {
       showToast("Login successful!", "success");
 
       setTimeout(() => {
-        window.location.href = "../index.html";
+        // Redirect based on role
+        if (data.data.user.role === "WORKER") {
+          window.location.href = "worker-dashboard.html";
+        } else if (data.data.user.role === "ADMIN") {
+          window.location.href = "admin-dashboard.html";
+        } else {
+          window.location.href = "../index.html";
+        }
       }, 1000);
     } else {
       showToast(data.message || "Login failed", "danger");
@@ -625,7 +632,7 @@ async function handleRegister(e) {
 
   if (role === "worker") {
     const skills = Array.from(
-      form.querySelectorAll('input[name="skills"]:checked')
+      form.querySelectorAll('input[name="skills"]:checked'),
     ).map((cb) => cb.value);
     formData.skills = skills;
     formData.experience = form.experience?.value || "";

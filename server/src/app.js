@@ -2,6 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import authRoutes from './routes/auth.routes.js';
+import workerRoutes from './routes/worker.routes.js';
+import bookingRoutes from './routes/booking.routes.js';
+import reviewRoutes from './routes/review.routes.js';
 
 const app = express();
 
@@ -9,7 +12,7 @@ app.use(helmet());
 
 app.use(
   cors({
-    origin: ['http://127.0.0.1:5500', 'http://localhost:5500'],
+    origin: true, // Allow all origins for local development
     credentials: true,
   }),
 );
@@ -24,11 +27,17 @@ app.get('/api', (req, res) => {
     version: '1.0.0',
     endpoints: {
       auth: '/api/auth',
+      workers: '/api/workers',
+      bookings: '/api/bookings',
+      reviews: '/api/reviews',
     },
   });
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/workers', workerRoutes);
+app.use('/api/bookings', bookingRoutes);
+app.use('/api/reviews', reviewRoutes);
 
 app.use((req, res) => {
   res.status(404).json({

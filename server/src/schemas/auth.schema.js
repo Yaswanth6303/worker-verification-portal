@@ -38,6 +38,7 @@ export const registerSchema = z.object({
   skills: z.array(z.string()).optional(),
   experience: z.string().optional(),
   bio: z.string().max(500, 'Bio must be less than 500 characters').optional(),
+  hourlyRate: z.number().positive().optional(),
 });
 
 export const loginSchema = z.object({
@@ -99,4 +100,6 @@ export const updateProfileSchema = z.object({
   experience: z.string().optional(),
 
   bio: z.string().max(500, 'Bio must be less than 500 characters').optional(),
+
+  isAvailable: z.boolean().optional(),
 });

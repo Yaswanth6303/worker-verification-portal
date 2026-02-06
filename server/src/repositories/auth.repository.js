@@ -1,4 +1,4 @@
-import prisma from '../utils/db.js';
+import prisma from '../config/database.js';
 
 class AuthRepository {
   async findUserByEmail(email, includeWorkerProfile = false) {
